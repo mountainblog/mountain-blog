@@ -3,486 +3,390 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>대한민국 10대 높은 산 등산 블로그</title>
+    <title>등산정상기행</title>
     <style>
-        body {
-            font-family: '돋움', Arial, sans-serif;
-            background-color: #f0f8ff;
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: '돋움', 'Noto Sans KR', Arial, sans-serif;
             line-height: 1.6;
+            color: #333;
         }
-        
-        h1 {
+
+        /* 배경 이미지 섹션 */
+        .hero {
+            background: linear-gradient(135deg, #87CEEB 0%, #4A90E2 100%);
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            color: #2c5aa0;
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-        
-        .intro {
-            text-align: center;
-            color: #666;
-            font-size: 18px;
-            margin-bottom: 40px;
-        }
-        
-        .mountain {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 30px auto;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            max-width: 800px;
-        }
-        
-        h2 {
-            color: #1e3a8a;
-            border-left: 5px solid #2c5aa0;
-            padding-left: 15px;
-            margin-top: 0;
-        }
-        
-        .mountain-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 20px 0;
-        }
-        
-        .mountain-image {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-        
-        .info-box {
-            background-color: #f5f5f5;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 10px 0;
-        }
-        
-        .info-box h3 {
-            color: #2c5aa0;
-            margin-top: 0;
-            font-size: 16px;
-        }
-        
-        .info-box p {
-            margin: 5px 0;
-            color: #555;
-            font-size: 14px;
-        }
-        
-        .rank {
-            display: inline-block;
-            background-color: #2c5aa0;
             color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-right: 10px;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .description {
-            color: #555;
-            font-size: 16px;
-            margin: 15px 0;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* 소개 섹션 */
+        .intro-section {
+            padding: 80px 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .intro-section h2 {
+            font-size: 36px;
+            color: #2c5aa0;
+            margin-bottom: 30px;
+        }
+
+        .intro-section p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
             line-height: 1.8;
         }
-        
+
+        /* 버튼 스타일 */
+        .button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4A90E2 0%, #2c5aa0 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: #4A90E2;
+            border: 2px solid #4A90E2;
+        }
+
+        .btn-secondary:hover {
+            background-color: #4A90E2;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* 산 소개 섹션 */
+        .mountains-preview {
+            padding: 80px 20px;
+            background-color: white;
+        }
+
+        .mountains-preview h2 {
+            font-size: 36px;
+            color: #2c5aa0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .mountains-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mountain-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .mountain-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
+        }
+
+        .mountain-card h3 {
+            color: #4A90E2;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .mountain-card p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
         .height {
             font-size: 24px;
             color: #d9534f;
             font-weight: bold;
-            margin: 10px 0;
         }
-        
-        .recommendation {
-            background-color: #fffacd;
-            padding: 15px;
-            border-left: 4px solid #ffc107;
-            border-radius: 5px;
-            margin: 15px 0;
+
+        /* 소셜 미디어 섹션 */
+        .social-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #87CEEB 0%, #4A90E2 100%);
+            color: white;
+            text-align: center;
         }
-        
-        .recommendation h4 {
-            margin-top: 0;
-            color: #ff8c00;
+
+        .social-section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
         }
-        
-        .recommendation p {
-            margin: 5px 0;
-            color: #333;
+
+        .social-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+
+        .social-link:hover {
+            background-color: white;
+            color: #4A90E2;
+            transform: scale(1.05);
+        }
+
+        .social-icon {
+            font-size: 24px;
+        }
+
+        /* 푸터 */
+        footer {
+            background-color: #2c5aa0;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .intro-section h2,
+            .mountains-preview h2,
+            .social-section h2 {
+                font-size: 28px;
+            }
+
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>⛰️ 대한민국 10대 높은 산 정상 기행</h1>
-    <p class="intro">대한민국의 아름다운 명산들을 정상에서 만나다. 내가 다녀온 산들의 이야기를 공유합니다.</p>
-    
-    <!-- 1위: 한라산 -->
-    <div class="mountain">
-        <h2><span class="rank">1위</span>한라산 (제주도)</h2>
-        <div class="mountain-info">
-            <div>
-                <img src="halla.jpg" alt="한라산 정상" class="mountain-image">
-            </div>
-            <div>
-                <div class="height">1,947m</div>
-                <div class="info-box">
-                    <h3>📍 위치</h3>
-                    <p>제주도 제주시, 서귀포시</p>
-                </div>
-                <div class="info-box">
-                    <h3>⏱️ 소요시간</h3>
-                    <p>약 5-6시간</p>
-                </div>
-                <div class="info-box">
-                    <h3>⭐ 난이도</h3>
-                    <p>중상 난이도</p>
-                </div>
+    <!-- 히어로 섹션 -->
+    <section class="hero" style="background-image: url('baekdudaegan.jpg'); background-blend-mode: overlay;">
+        <div class="hero-content">
+            <h1>⛰️ 등산정상기행</h1>
+            <p>대한민국 높은 산 정상 TOP10을 오르다</p>
+            <div class="button-group">
+                <a href="index.html" class="btn btn-primary">📖 블로그 보기</a>
+                <a href="https://www.youtube.com/@jinijjang" target="_blank" class="btn btn-secondary">🎥 유튜브 채널</a>
             </div>
         </div>
-        <div class="description">
-            <strong>한라산의 이야기:</strong> 제3기 말부터 제4기 초에 분출한 휴화산으로, 남한에서 가장 높은 산입니다. 한라산은 "한번(1) 구경(9) 오(5)세영(0)"이라고 외우는 높이 1950m의 상징이에요. 정상의 백록담은 한라산의 가장 큰 특징으로, 분화구 안에 생긴 호수입니다. 봄의 벚꽃, 여름의 시원한 바람, 가을의 단풍, 겨울의 설경까지 사계절 모두 아름다운 산입니다.
-        </div>
-        <div class="recommendation">
-            <h4>🏨 추천 펜션</h4>
-            <p>• 한라산 여관 (정상 근처)</p>
-            <p>• 제주 스테이 펜션</p>
-            <h4>🍽️ 추천 맛집</h4>
-            <p>• 흑돼지 구이 (제주 향토 음식)</p>
-            <p>• 성산 일출봉 갈치회</p>
-        </div>
-    </div>
-    
-    <!-- 2위: 지리산 -->
-    <div class="mountain">
-        <h2><span class="rank">2위</span>지리산 (경남/전남/전북)</h2>
-        <div class="mountain-info">
-            <div>
-                <img src="jiri.jpg" alt="지리산 정상" class="mountain-image">
-            </div>
-            <div>
-                <div class="height">1,915m</div>
-                <div class="info-box">
-                    <h3>📍 위치</h3>
-                    <p>경남 산청·하동·함양, 전남 구례, 전북 남원</p>
-                </div>
-                <div class="info-box">
-                    <h3>⏱️ 소요시간</h3>
-                    <p>약 7-8시간</p>
-                </div>
-                <div class="info-box">
-                    <h3>⭐ 난이도</h3>
-                    <p>중 난이도</p>
-                </div>
-            </div>
-        </div>
-        <div class="description">
-            <strong>지리산의 이야기:</strong> 1967년 우리나라 최초의 국립공원으로 지정된 지리산은 483.022㎢의 가장 넓은 면적을 자랑합니다. 정상인 천왕봉에서 보는 능선은 정말 아름다워요. "어리석은 사람이 머물면 지혜로운 사람이 된다"는 의미의 어머니의 산이라고 불리기도 합니다. 동과 서, 영남과 호남이 만나는 곳으로 다양한 문화와 자연을 경험할 수 있습니다.
-        </div>
-        <div class="recommendation">
-            <h4>🏨 추천 펜션</h4>
-            <p>• 지리산 자연 펜션 (함양)</p>
-            <p>• 산청 관광 펜션</p>
-            <h4>🍽️ 추천 맛집</h4>
-            <p>• 곡성 참나물 정식</p>
-            <p>• 산청 한우 구이</p>
-        </div>
-    </div>
-    
-    <!-- 3위: 설악산 -->
-    <div class="mountain">
-        <h2><span class="rank">3위</span>설악산 (강원도)</h2>
-        <div class="mountain-info">
-            <div>
-                <img src="seolak.jpg" alt="설악산 정상" class="mountain-image">
-            </div>
-            <div>
-                <div class="height">1,708m</div>
-                <div class="info-box">
-                    <h3>📍 위치</h3>
-                    <p>강원도 인제·양양·속초</p>
-                </div>
-                <div class="info-box">
-                    <h3>⏱️ 소요시간</h3>
-                    <p>약 5-7시간</p>
-                </div>
-                <div class="info-box">
-                    <h3>⭐ 난이도</h3>
-                    <p>상 난이도</p>
-                </div>
-            </div>
-        </div>
-        <div class="description">
-            <strong>설악산의 이야기:</strong> 1970년 다섯 번째 국립공원으로 지정되었으며, 1982년 유네스코 생물권보전지역으로도 지정되었습니다. 대한민국 제1경이라 불리는 설악산은 공룡능선이 유명하고, 낙산사와 신흥사 같은 고찰도 볼 수 있어요. 봄의 야생화, 여름의 계곡, 가을의 단풍은 정말 황홀한 경치를 선사합니다. 암봉이 많아서 등산 난이도가 높지만, 그만큼 멋진 풍경이 기다리고 있어요.
-        </div>
-        <div class="recommendation">
-            <h4>🏨 추천 펜션</h4>
-            <p>• 설악산 펜션 마을 (속초)</p>
-            <p>• 인제 자연 휴양림 펜션</p>
-            <h4>🍽️ 추천 맛집</h4>
-            <p>• 속초 오징어 회</p>
-            <p>• 강릉 초당 두부</p>
-        </div>
-    </div>
-    
-    <!-- 4위: 덕유산 -->
-    <div class="mountain">
-        <h2><span class="rank">4위</span>덕유산 (전북/경남)</h2>
-        <div class="mountain-info">
-            <div>
-                <img src="deogyu.jpg" alt="덕유산 정상" class="mountain-image">
-            </div>
-            <div>
-                <div class="height">1,614m</div>
-                <div class="info-box">
-                    <h3>📍 위치</h3>
-                    <p>전북 무주·장수·거창, 경남 함양</p>
-                </div>
-                <div class="info-box">
-                    <h3>⏱️ 소요시간</h3>
-                    <p>약 4-5시간</p>
-                </div>
-                <div class="info-box">
-                    <h3>⭐ 난이도</h3>
-                    <p>중 난이도</p>
-                </div>
-            </div>
-        </div>
-        <div class="description">
-            <strong>덕유산의 이야기:</strong> 덕유산은 곤돌라를 타고 설천봉까지 올라갈 수 있어 등산객들 사이에서 인기가 많습니다. 겨울에는 눈꽃 트레킹을 할 수 있고, 주변에 덕유산 스키장이 있어 겨울 스포츠를 즐기는 사람들도 많아요. 정상인 향적봉에서 보는 경치는 정말 아름답습니다.
-        </div>
-        <div class="recommendation">
-            <h4>🏨 추천 펜션</h4>
-            <p>• 무주 덕유산 펜션</p>
-            <p>• 무주 리조트 근처 펜션</p>
-            <h4>🍽️ 추천 맛집</h4>
-            <p>• 무주 머루 와인 축제 음식</p>
-            <p>• 무주 소불고기</p>
-        </div>
-    </div>
-    
-    <!-- 5위: 계방산 -->
-    <div class="mountain">
-        <h2><span class="rank">5위</span>계방산 (강원도)</h2>
-        <div class="mountain-info">
-            <div>
-                <img src="gyeongbang.jpg" alt="계방산 정상" class="mountain-image">
-            </div>
-            <div>
-                <div class="height">1,577m</div>
-                <div class="info-box">
-                    <h3>📍 위치</h3>
-                    <p>강원도 홍천·평창</p>
-                </div>
-                <div class="info-box">
-                    <h3>⏱️ 소요시간</h3>
-                    <p>약 4-5시간</p>
-                </div>
-                <div class="info-box">
-                    <h3>⭐ 난이도</h3>
-                    <p>중상 난이도</p>
-                </div>
-            </div>
-        </div>
-        <div class="description">
-            <strong>계방산의 이야기:</strong> 계방산은 정상에 오르면 정상에 한 줄로 이어진 등산객들을 볼 정도로 인기 있는 산입니다. 상봉이 최고봉이며, 봄에 철쭉이 아름답기로 유명해요. 정상 부근에서 보는 주변 산들의 조망이 정말 멋집니다.
-        </div>
-        <div class="recommendation">
-            <h4>🏨 추천 펜션</h4>
-            <p>• 평창 계방산 펜션</p>
-            <p>• 홍천 자연 펜션</p>
-            <h4>🍽️ 추천 맛집</h4>
-            <p>• 평창 송어회</p>
-            <p>• 홍천 산채 비빔밥</p>
-        </div>
-    </div>
-    
-    <!-- 6위: 함백산 -->
-    <div class="mountain">
-        <h2><span class="rank">6위</span>함백산 (강원도)</h2>
-        <div class="mountain-info">
-            <div>
-                <img src="hambaek.jpg" alt="함백산 정상" class="mountain-image">
-            </div>
-            <div>
-                <div class="height">1,573m</div>
-                <div class="info-box">
-                    <h3>📍 위치</h3>
-                    <p>강원도 태백·정선</p>
-                </div>
-                <div class="info-box">
-                    <h3>⏱️ 소요시간</h3>
-                    <p>약 4-6시간</p>
-                </div>
-                <div class="info-box">
-                    <h3>⭐ 난이도</h3>
-                    <p>중 난이도</p>
-                </div>
-            </div>
-        </div>
-        <div class="description">
-            <strong>함백산의 이야기:</strong> 함백산은 태백산국립공원에 포함되어 있으며, 강원도의 주요 산 중 하나입니다. 정상에서 보는 조망이 훌륭하고, 주변에 탄광 박물관 등 다양한 관광지가 있어요. 여름에는 야생화가 아름답고, 겨울에는 설경이 멋집니다.
-        </div>
-        <div class="recommendation">
-            <h4>🏨 추천 펜션</h4>
-            <p>• 정선 함백산 펜션</p>
-            <p>• 태백 자연 휴양림</p>
-            <h4>🍽️ 추천 맛집</h4>
-            <p>• 정선 아리랑 쌀국수</p>
-            <p>• 태백 한우 불고기</p>
-        </div>
-    </div>
-    
-    <!-- 7위: 태백산 -->
-    <div class="mountain">
-        <h2><span class="rank">7위</span>태백산 (강원도)</h2>
-        <div class="mountain-info">
-            <div>
-                <img src="taebaek.jpg" alt="태백산 정상" class="mountain-image">
-            </div>
-            <div>
-                <div class="height">1,567m</div>
-                <div class="info-box">
-                    <h3>📍 위치</h3>
-                    <p>강원도 태백·봉화</p>
-                </div>
-                <div class="info-box">
-                    <h3>⏱️ 소요시간</h3>
-                    <p>약 3-4시간</p>
-                </div>
-                <div class="info-box">
-                    <h3>⭐ 난이도</h3>
-                    <p>하 난이도</p>
-                </div>
-            </div>
-        </div>
-        <div class="description">
-            <strong>태백산의 이야기:</strong> 태백산은 태백산국립공원의 중심이며, 민족의 정기가 서린 산으로 알려져 있습니다. 정상의 해 뜰 때 경치가 정말 아름다워요. 겨울에는 눈이 많이 내려 설경이 멋지고, 봄에는 철쭉이 핍니다. 가장 비교적 난이도가 낮은 산 중 하나라 많은 등산객들이 찾습니다.
-        </div>
-        <div class="recommendation">
-            <h4>🏨 추천 펜션</h4>
-            <p>• 태백 자연 펜션</p>
-            <p>• 태백 휴양림 숙소</p>
-            <h4>🍽️ 추천 맛집</h4>
-            <p>• 태백 송이버섯 국밥</p>
-            <p>• 태백 감자 요리</p>
-        </div>
-    </div>
-    
-    <!-- 8위: 오대산 -->
-    <div class="mountain">
-        <h2><span class="rank">8위</span>오대산 (강원도)</h2>
-        <div class="mountain-info">
-            <div>
-                <img src="odae.jpg" alt="오대산 정상" class="mountain-image">
-            </div>
-            <div>
-                <div class="height">1,563m</div>
-                <div class="info-box">
-                    <h3>📍 위치</h3>
-                    <p>강원도 평창·강릉</p>
-                </div>
-                <div class="info-box">
-                    <h3>⏱️ 소요시간</h3>
-                    <p>약 5-6시간</p>
-                </div>
-                <div class="info-box">
-                    <h3>⭐ 난이도</h3>
-                    <p>중 난이도</p>
-                </div>
-            </div>
-        </div>
-        <div class="description">
-            <strong>오대산의 이야기:</strong> 오대산은 오대산국립공원의 중심이며, 다섯 개의 봉우리가 있다고 해서 이름이 붙여졌어요. 정상인 비로봉에서 보는 경치가 멋지고, 월정사 같은 고찰도 있습니다. 봄의 철쭉, 가을의 단풍이 아름답습니다.
-        </div>
-        <div class="recommendation">
-            <h4>🏨 추천 펜션</h4>
-            <p>• 평창 오대산 펜션</p>
-            <p>• 강릉 자연 휴양림</p>
-            <h4>🍽️ 추천 맛집</h4>
-            <p>• 강릉 초당 두부</p>
-            <p>• 평창 메밀 국수</p>
-        </div>
-    </div>
-    
-    <!-- 9위: 가리왕산 -->
-    <div class="mountain">
-        <h2><span class="rank">9위</span>가리왕산 (강원도)</h2>
-        <div class="mountain-info">
-            <div>
-                <img src="gariw.jpg" alt="가리왕산 정상" class="mountain-image">
-            </div>
-            <div>
-                <div class="height">1,561m</div>
-                <div class="info-box">
-                    <h3>📍 위치</h3>
-                    <p>강원도 정선·평창</p>
-                </div>
-                <div class="info-box">
-                    <h3>⏱️ 소요시간</h3>
-                    <p>약 5-6시간</p>
-                </div>
-                <div class="info-box">
-                    <h3>⭐ 난이도</h3>
-                    <p>중상 난이도</p>
-                </div>
-            </div>
-        </div>
-        <div class="description">
-            <strong>가리왕산의 이야기:</strong> 가리왕산은 상봉이 최고봉이며, 정선과 평창에 걸쳐 있습니다. 겨울 스키장으로도 유명하며, 사계절 각각의 아름다움을 자랑합니다. 능선 산행이 멋지고, 주변 경치도 훌륭해요.
-        </div>
-        <div class="recommendation">
-            <h4>🏨 추천 펜션</h4>
-            <p>• 정선 가리왕산 펜션</p>
-            <p>• 평창 자연 펜션</p>
-            <h4>🍽️ 추천 맛집</h4>
-            <p>• 정선 아리랑 음식</p>
-            <p>• 정선 산나물 정식</p>
-        </div>
-    </div>
-    
-    <!-- 10위: 남덕유산 -->
-    <div class="mountain">
-        <h2><span class="rank">10위</span>남덕유산 (경남)</h2>
-        <div class="mountain-info">
-            <div>
-                <img src="namdeogyu.jpg" alt="남덕유산 정상" class="mountain-image">
-            </div>
-            <div>
-                <div class="height">1,507m</div>
-                <div class="info-box">
-                    <h3>📍 위치</h3>
-                    <p>경남 거창</p>
-                </div>
-                <div class="info-box">
-                    <h3>⏱️ 소요시간</h3>
-                    <p>약 3-4시간</p>
-                </div>
-                <div class="info-box">
-                    <h3>⭐ 난이도</h3>
-                    <p>하 난이도</p>
-                </div>
-            </div>
-        </div>
-        <div class="description">
-            <strong>남덕유산의 이야기:</strong> 조선시대에는 봉황산(鳳凰山) 또는 황봉(黃峯)이라고 불렸던 남덕유산입니다. 경남 거창에 위치해 있으며, 비교적 등산 난이도가 낮아서 많은 등산객들이 찾습니다. 정상에서 보는 경치도 아름답고, 주변 자연도 좋습니다.
-        </div>
-        <div class="recommendation">
-            <h4>🏨 추천 펜션</h4>
-            <p>• 거창 자연 펜션</p>
-            <p>• 거창 휴양림 숙소</p>
-            <h4>🍽️ 추천 맛집</h4>
-            <p>• 거창 산나물 비빔밥</p>
-            <p>• 거창 수박 화채</p>
-        </div>
-    </div>
+    </section>
 
+    <!-- 소개 섹션 -->
+    <section class="intro-section">
+        <h2>당신을 기다리는 산들</h2>
+        <p>
+            한라산부터 설악산까지, 대한민국에서 가장 높은 10개의 산들.<br>
+            각 정상에서 바라본 아름다운 풍경과 그곳에서의 특별한 이야기들을 만나보세요.
+        </p>
+        <div class="button-group">
+            <a href="index.html" class="btn btn-primary">🏔️ 10대 높은 산 블로그로 이동</a>
+        </div>
+    </section>
+
+      <!-- 산 미리보기 섹션 -->
+    <section class="mountains-preview">
+        <h2>높은 산 TOP 10</h2>
+        <div class="mountains-grid">
+            <div class="mountain-card">
+                <h3>🏔️ 1위. 한라산</h3>
+                <div class="height">1,947m</div>
+                <p>제주도</p>
+                <p>남한에서 가장 높은 산, 백록담이 있는 신비로운 산</p>
+            </div>
+            <div class="mountain-card">
+                <h3>🏔️ 2위. 지리산</h3>
+                <div class="height">1,915m</div>
+                <p>경남/전남/전북</p>
+                <p>가장 큰 국립공원, 능선의 아름다움이 뛰어남</p>
+            </div>
+            <div class="mountain-card">
+                <h3>🏔️ 3위. 설악산</h3>
+                <div class="height">1,708m</div>
+                <p>강원도</p>
+                <p>대한민국 제1경, 공룡능선으로 유명</p>
+            </div>
+            <div class="mountain-card">
+                <h3>🏔️ 4위. 덕유산</h3>
+                <div class="height">1,614m</div>
+                <p>전북/경남</p>
+                <p>겨울 눈꽃 트레킹이 아름다운 산</p>
+            </div>
+            <div class="mountain-card">
+                <h3>🏔️ 5위. 계방산</h3>
+                <div class="height">1,577m</div>
+                <p>강원도</p>
+                <p>봄 철쭉이 아름답고 정상 전망이 탁월</p>
+            </div>
+            <div class="mountain-card">
+                <h3>🏔️ 6위. 함백산</h3>
+                <div class="height">1,573m</div>
+                <p>강원도</p>
+                <p>여름 야생화와 겨울 설경이 아름다운 산</p>
+            </div>
+            <div class="mountain-card">
+                <h3>🏔️ 7위. 태백산</h3>
+                <div class="height">1,567m</div>
+                <p>강원도</p>
+                <p>일출의 명소, 비교적 난이도가 낮음</p>
+            </div>
+            <div class="mountain-card">
+                <h3>🏔️ 8위. 오대산</h3>
+                <div class="height">1,563m</div>
+                <p>강원도</p>
+                <p>다섯 개의 봉우리, 월정사가 있는 명산</p>
+            </div>
+            <div class="mountain-card">
+                <h3>🏔️ 9위. 가리왕산</h3>
+                <div class="height">1,561m</div>
+                <p>강원도</p>
+                <p>능선 산행이 멋지고 조망이 탁월</p>
+            </div>
+            <div class="mountain-card">
+                <h3>🏔️ 10위. 남덕유산</h3>
+                <div class="height">1,507m</div>
+                <p>경남</p>
+                <p>비교적 난이도가 낮고 자연이 풍부</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 소셜 미디어 섹션 -->
+    <section class="social-section">
+        <h2>📱 나를 팔로우하세요!</h2>
+        <div class="social-links">
+            <a href="https://www.youtube.com/@jinijjang" target="_blank" class="social-link">
+                <span class="social-icon">🎥</span>
+                <span>유튜브</span>
+            </a>
+            <a href="https://www.instagram.com/jinijjang73/" target="_blank" class="social-link">
+                <span class="social-icon">📸</span>
+                <span>인스타그램</span>
+            </a>
+        </div>
+        <p style="font-size: 16px;">더 많은 등산 이야기를 나누어요! 🏔️</p>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; 2026 등산정상기행 | 대한민국의 아름다운 산들을 함께 오릅니다</p>
+    </footer>
 </body>
 </html>
