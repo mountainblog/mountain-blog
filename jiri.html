@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지리산 상세 정보 - 등산정상기행</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: '돋움', 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* 헤더 */
+        header {
+            background: linear-gradient(135deg, #87CEEB 0%, #4A90E2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .back-button a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button a:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* 컨테이너 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 섹션 */
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #2c5aa0;
+            font-size: 28px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #4A90E2;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #4A90E2;
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f4f8 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4A90E2;
+        }
+
+        .info-box-label {
+            font-weight: bold;
+            color: #2c5aa0;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .info-box-value {
+            color: #333;
+            font-size: 16px;
+        }
+
+        /* 등산코스 */
+        .course-card {
+            background: #f8f9fa;
+            border-left: 4px solid #4A90E2;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .course-title {
+            color: #2c5aa0;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .course-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .course-item {
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .course-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .course-value {
+            font-weight: bold;
+            color: #4A90E2;
+            font-size: 16px;
+        }
+
+        /* 맛집/편의시설 */
+        .facility-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .facility-item {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .facility-item:hover {
+            border-color: #4A90E2;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+        }
+
+        .facility-name {
+            font-weight: bold;
+            color: #2c5aa0;
+            margin-bottom: 5px;
+        }
+
+        .facility-desc {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* 주의사항 */
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .warning h4 {
+            color: #ff6f00;
+            margin-bottom: 10px;
+        }
+
+        .warning ul {
+            margin-left: 20px;
+            color: #666;
+        }
+
+        .warning li {
+            margin: 8px 0;
+        }
+
+        /* 이미지 */
+        .mountain-image {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            max-height: 400px;
+            object-fit: contain;
+            margin: 20px auto;
+            display: block;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+        }
+
+        /* 게시판 섹션 */
+        .board-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .board-title {
+            color: #2c5aa0;
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #4A90E2;
+            padding-bottom: 10px;
+        }
+
+        .comment-form {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 80px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: '돋움', Arial;
+            resize: vertical;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #4A90E2 0%, #2c5aa0 100%);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+        }
+
+        /* 위로 올리기 버튼 */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #4A90E2 0%, #2c5aa0 100%);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .scroll-top-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(74, 144, 226, 0.6);
+            background: linear-gradient(135deg, #5A9FEF 0%, #3D6EB0 100%);
+        }
+
+        .scroll-top-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* 푸터 */
+        footer {
+            background-color: #2c5aa0;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .section h2 {
+                font-size: 22px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="back-button">
+            <a href="blog.html">← 블로그로 돌아가기</a>
+        </div>
+        <h1>⛰️ 지리산</h1>
+        <p>한반도의 남부 거점, 최고의 능선 산행 | 1,915m</p>
+    </header>
+
+    <!-- 메인 컨텐츠 -->
+    <div class="container">
+        <!-- 산 이미지 -->
+        <div class="section">
+            <img src="jiri.jpg" alt="지리산" class="mountain-image">
+        </div>
+
+        <!-- 기본 정보 -->
+        <div class="section">
+            <h2>📍 기본 정보</h2>
+            <div class="info-grid">
+                <div class="info-box">
+                    <div class="info-box-label">높이</div>
+                    <div class="info-box-value">1,915m</div>
+                </div>
+                <div class="info-box">
+                    <div class="info-box-label">위치</div>
+                    <div class="info-box-value">경남/전남/전북</div>
+                </div>
+                <div class="info-box">
+                    <div class="info-box-label">난이도</div>
+                    <div class="info-box-value">중상</div>
+                </div>
+                <div class="info-box">
+                    <div class="info-box-label">등반 시간</div>
+                    <div class="info-box-value">5~10시간</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 산의 역사와 정보 -->
+        <div class="section">
+            <h2>🏔️ 산의 역사와 정보</h2>
+            <p style="line-height: 1.8; color: #555; margin-bottom: 15px;">
+                지리산은 남한에서 한라산, 설악산 다음으로 높은 산으로, 경남·전남·전북 3개도가 만나는 곳에 위치합니다. 
+                둘레가 무려 320km나 되는 거대한 산으로, 20여 개의 주요 봉우리와 50여 개의 명칭을 가진 전망대가 있습니다.
+            </p>
+            
+            <h3>⛩️ 역사와 전설</h3>
+            <p style="line-height: 1.8; color: #555; margin-bottom: 15px;">
+                지리산은 '지루하다'라는 뜻의 우리말 '지리하다'에서 유래한 이름입니다. 
+                또한 한자로는 '두류산(頭流山)'이라 하여 백두산의 맥이 뻗어 내려온 산이라는 의미를 담고 있습니다. 
+                신라시대부터 많은 사찰이 세워졌으며, 548년 창건한 대원사 등 역사 깊은 사찰들이 있습니다.
+            </p>
+
+            <h3>🌄 천왕봉과 능선</h3>
+            <p style="line-height: 1.8; color: #555;">
+                천왕봉(1,915m)은 지리산의 최고봉이며, 정상에서 보는 일출은 산청 9경의 제1경입니다. 
+                천왕봉에서 노고단(1,507m)까지 이르는 주능선의 거리는 25.5km로, 
+                동서방향으로 완만하고 샘이 많아 최고의 능선 산행 코스로 꼽힙니다. 
+                반야봉, 중봉 등 10여 개의 고산준봉이 병풍처럼 펼쳐져 있습니다.
+            </p>
+        </div>
+
+        <!-- 등산코스 -->
+        <div class="section">
+            <h2>🥾 등산 코스</h2>
+            
+            <div class="course-card">
+                <div class="course-title">1️⃣ 중산리 코스 (추천: 경험자, 최단거리)</div>
+                <p style="color: #666; margin-bottom: 10px;">
+                    지리산 천왕봉까지 가장 짧은 거리의 코스입니다. 
+                    중산리에서 순두류 버스를 타고 올라가면 등산 거리를 크게 단축할 수 있습니다.
+                </p>
+                <div class="course-info">
+                    <div class="course-item">
+                        <div class="course-label">거리</div>
+                        <div class="course-value">약 7km</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-label">왕복 시간</div>
+                        <div class="course-value">5~6시간</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-label">난이도</div>
+                        <div class="course-value">중상</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-label">시작점</div>
+                        <div class="course-value">중산리 탐방지원센터</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">2️⃣ 노고단 코스 (추천: 초보자)</div>
+                <p style="color: #666; margin-bottom: 10px;">
+                    지리산에서 가장 쉬운 코스입니다. 
+                    성삼재 휴게소에서 출발하며, 대중교통으로 접근하기 좋습니다.
+                </p>
+                <div class="course-info">
+                    <div class="course-item">
+                        <div class="course-label">거리</div>
+                        <div class="course-value">약 4.7km</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-label">왕복 시간</div>
+                        <div class="course-value">3~4시간</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-label">난이도</div>
+                        <div class="course-value">하</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-label">시작점</div>
+                        <div class="course-value">성삼재 주차장</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">3️⃣ 백무동 코스 (1박 이상 추천)</div>
+                <p style="color: #666; margin-bottom: 10px;">
+                    지리산의 가장 인기 있는 능선 산행 코스입니다. 
+                    백무동에서 출발하여 천왕봉까지 능선을 따라 가는 최고의 코스입니다.
+                </p>
+                <div class="course-info">
+                    <div class="course-item">
+                        <div class="course-label">거리</div>
+                        <div class="course-value">약 13km</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-label">산행 시간</div>
+                        <div class="course-value">5시간 30분</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-label">난이도</div>
+                        <div class="course-value">중상</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-label">대피소</div>
+                        <div class="course-value">세석·장터목</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>💡 코스 선택 팁</h3>
+            <p style="line-height: 1.8; color: #555; margin: 15px 0;">
+                • <strong>당일 산행</strong>: 노고단 코스 (쉽고 빠름)<br>
+                • <strong>최단거리 산행</strong>: 중산리 코스 (버스 이용)<br>
+                • <strong>최고의 능선 산행</strong>: 백무동 코스 (1박 이상)<br>
+                • <strong>초보자</strong>: 노고단 코스 (난이도 낮음)<br>
+                • <strong>경험자</strong>: 중산리 + 노고단 횡단 코스
+            </p>
+        </div>
+
+        <!-- 대중교통 -->
+        <div class="section">
+            <h2>🚌 대중교통 이용 방법</h2>
+            
+            <h3>중산리 코스 가는 길</h3>
+            <p style="line-height: 1.8; color: #555; margin-bottom: 15px;">
+                산청 시외버스터미널 또는 남원 시외버스터미널에서 중산리행 버스를 타면 됩니다. 
+                중산리 탐방지원센터 입구에 도착합니다. 
+                셔틀버스: 평일 오전 8시 첫차, 주말 7시 운영 (요금 2,000원, 유아 무료)
+            </p>
+
+            <h3>노고단 코스 가는 길</h3>
+            <p style="line-height: 1.8; color: #555;">
+                구례, 하동, 함양 방면에서 버스를 타고 성삼재 휴게소 또는 천은사에 도착할 수 있습니다. 
+                차량으로 해발 1,000m 이상의 고지까지 올라가므로 산행 시간이 단축됩니다.
+            </p>
+
+            <div class="warning">
+                <h4>⚠️ 입산 예약</h4>
+                <ul>
+                    <li>지리산 특정 탐방로는 사전 예약이 필요할 수 있습니다.</li>
+                    <li>확인: 지리산국립공원 공식 홈페이지</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 주차장 -->
+        <div class="section">
+            <h2>🚗 주차장 이용 방법</h2>
+            
+            <h3>중산리 주차장</h3>
+            <p style="line-height: 1.8; color: #555; margin-bottom: 15px;">
+                <strong>주차료:</strong> 평일 4,000원, 주말 5,000원<br>
+                <strong>위치:</strong> 산청군 산청읍 중산리 탐방지원센터 입구<br>
+                <strong>정보:</strong> 주차장, 화장실, 식당, 카페 모두 구비
+            </p>
+
+            <h3>노고단 주차장 (성삼재)</h3>
+            <p style="line-height: 1.8; color: #555; margin-bottom: 15px;">
+                <strong>위치:</strong> 성삼재 휴게소 인근<br>
+                <strong>정보:</strong> 시암재 휴게소(무휴) 인근에도 주차 가능
+            </p>
+
+            <h3>💡 주차 팁</h3>
+            <p style="line-height: 1.8; color: #555;">
+                • 성수기(봄/가을): 최소 새벽 6시 이전 도착 권장<br>
+                • 주말: 주차 난이도가 높으므로 버스 이용 권장<br>
+                • 성삼재는 고지대라 겨울에 진입 불가능할 수 있음
+            </p>
+        </div>
+
+        <!-- 숙박시설 -->
+        <div class="section">
+            <h2>🏨 추천 숙박시설</h2>
+            
+            <div class="facility-item" style="border: 2px solid #4A90E2; padding: 20px; margin-bottom: 20px;">
+                <div class="facility-name" style="font-size: 18px;">숲속 맑은 꼴 펜션</div>
+                <p style="color: #666; margin: 10px 0;">
+                    <strong>📍 위치:</strong> 경남 산청군 시천면 지리산대로 578-38<br>
+                    <strong>📞 연락처:</strong> 055-974-0100<br>
+                    <strong>🌐 홈페이지:</strong> www.villageinw.co.kr
+                </p>
+                <p style="color: #555; line-height: 1.8; margin: 10px 0;">
+                    중산리 탐방지원센터로부터 차로 약 3분 거리에 위치한 최고의 가성비 숙소입니다. 
+                    산청 시천면의 자연 속에서 지리산의 맑은 정기를 느낄 수 있습니다.
+                </p>
+                <p style="color: #555; line-height: 1.8;">
+                    <strong>특징:</strong><br>
+                    • 독채식 펜션 운영<br>
+                    • 주차장 픽업 서비스 제공<br>
+                    • 지리산 전경 조망<br>
+                    • 산청 곶감 등 로컬 식품 판매<br>
+                    • 가성비 최고의 숙소<br>
+                    • 바베큐 시설 가능
+                </p>
+            </div>
+        </div>
+
+        <!-- 편의시설 -->
+        <div class="section">
+            <h2>🛒 편의시설</h2>
+            
+            <h3>주변 편의점 및 식당</h3>
+            <div class="facility-list">
+                <div class="facility-item">
+                    <div class="facility-name">CU 편의점</div>
+                    <div class="facility-desc">산청/구례 지역 다수 위치</div>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-name">GS25 편의점</div>
+                    <div class="facility-desc">중산리 탐방지원센터 근처</div>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-name">다이소</div>
+                    <div class="facility-desc">산청읍, 구례읍 지점</div>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-name">대형마트</div>
+                    <div class="facility-desc">산청읍, 구례읍에 위치</div>
+                </div>
+            </div>
+
+            <h3>카페 및 휴식처</h3>
+            <div class="facility-list">
+                <div class="facility-item">
+                    <div class="facility-name">로컬 카페</div>
+                    <div class="facility-desc">중산리 탐방지원센터 인근</div>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-name">성삼재 휴게소</div>
+                    <div class="facility-desc">음식점, 휴게실 운영 중</div>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-name">시암재 휴게소</div>
+                    <div class="facility-desc">연중무휴 운영</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 맛집 -->
+        <div class="section">
+            <h2>🍴 주변 맛집</h2>
+            
+            <h3>산청 추천 맛집</h3>
+            <div class="facility-list">
+                <div class="facility-item">
+                    <div class="facility-name">지리산식당</div>
+                    <div class="facility-desc">자연산 더덕정식, 산나물 버섯전골 (구례)</div>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-name">지리산버거</div>
+                    <div class="facility-desc">현지인 맛집, 신선한 재료 사용</div>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-name">산닭구이 식당</div>
+                    <div class="facility-desc">등산 후 막걸리와 산닭구이 (35년 영업)</div>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-name">피아골 식당</div>
+                    <div class="facility-desc">예약 필수, 현지인 추천 맛집</div>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-name">산나물밥집</div>
+                    <div class="facility-desc">지리산 직송 산나물, 가성비 최고</div>
+                </div>
+            </div>
+
+            <h3>특별 음식</h3>
+            <div class="facility-list">
+                <div class="facility-item">
+                    <div class="facility-name">산 나물 정식</div>
+                    <div class="facility-desc">지리산의 향기를 담은 정식</div>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-name">더덕구이</div>
+                    <div class="facility-desc">건강식재, 산청의 특산물</div>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-name">곶감</div>
+                    <div class="facility-desc">산청 최고의 선물, 겨울 간식</div>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-name">산수유 요리</div>
+                    <div class="facility-desc">봄 시즌 특선 음식</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 게시판 -->
+        <div class="board-section">
+            <div class="board-title">💬 등산 후기 및 정보 공유</div>
+            
+            <div class="comment-form">
+                <h3 style="color: #2c5aa0; margin-bottom: 15px;">당신의 지리산 경험을 공유해주세요!</h3>
+                <form>
+                    <input type="text" placeholder="닉네임을 입력하세요">
+                    <textarea placeholder="등산 후기, 팁, 추천사항 등을 자유롭게 작성해주세요..."></textarea>
+                    <button type="button" class="btn-submit">작성하기</button>
+                </form>
+            </div>
+
+            <div id="disqus_thread" style="margin-top: 40px;">
+                <p style="color: #999; text-align: center; padding: 20px;">
+                    💡 Tip: 댓글 기능을 추가하려면 Disqus 가입이 필요합니다. <br>
+                    지금은 간단한 후기 작성 폼만 제공하고 있습니다.
+                </p>
+            </div>
+        </div>
+
+        <!-- 주의사항 -->
+        <div class="section">
+            <h2>⚠️ 등산 전 필수 확인사항</h2>
+            
+            <div class="warning">
+                <h4>🌡️ 날씨 확인</h4>
+                <ul>
+                    <li>지리산은 능선이 노출되어 바람이 강할 수 있습니다.</li>
+                    <li>여름철에도 정상은 쌀쌀하니 얇은 겹겹이 옷 준비</li>
+                    <li>겨울/봄: 아이젠, 스틱 필수</li>
+                </ul>
+            </div>
+
+            <div class="warning" style="background: #f3e5f5; border-left-color: #9c27b0;">
+                <h4 style="color: #6a1b9a;">⏰ 산행 시간</h4>
+                <ul>
+                    <li>능선이 길어 예상보다 시간이 더 걸릴 수 있습니다.</li>
+                    <li>해가 지기 2시간 전에 하산 권장</li>
+                    <li>야간 산행은 절대 금지</li>
+                </ul>
+            </div>
+
+            <div class="warning" style="background: #e3f2fd; border-left-color: #2196f3;">
+                <h4 style="color: #0d47a1;">💧 물과 간식</h4>
+                <ul>
+                    <li>능선에 샘이 많지만 충분한 물 준비</li>
+                    <li>에너지 음식(초콜릿, 에너지바 등) 필수</li>
+                    <li>대피소에서 판매 물품이 제한적이므로 미리 준비</li>
+                </ul>
+            </div>
+
+            <div class="warning" style="background: #e8f5e9; border-left-color: #4caf50;">
+                <h4 style="color: #2e7d32;">🎒 필수 장비</h4>
+                <ul>
+                    <li>편한 등산화, 스틱</li>
+                    <li>방풍복, 모자, 장갑</li>
+                    <li>썬크림, 선글라스</li>
+                    <li>응급처치 키트</li>
+                    <li>배터리나 모바일 충전기</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 위로 올리기 버튼 -->
+    <button id="scrollTopBtn" class="scroll-top-btn" onclick="scrollToTop()">
+        ⬆️ 위로 올리기
+    </button>
+
+    <script>
+        // 위로 올리기 버튼 표시/숨김
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('scrollTopBtn');
+            if (window.pageYOffset > 300) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        });
+
+        // 위로 올리기 함수
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; 2026 등산정상기행 | 지리산 상세 정보</p>
+    </footer>
+</body>
+</html>
