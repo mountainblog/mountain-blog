@@ -305,6 +305,34 @@
                 grid-template-columns: 1fr;
             }
         }
+  /* 위로 올리기 버튼 */
+    .scroll-top-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: linear-gradient(135deg, #4A90E2 0%, #2c5aa0 100%);
+        color: white;
+        border: none;
+        padding: 15px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        display: none;
+        box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+        transition: all 0.3s ease;
+        z-index: 999;
+    }
+
+    .scroll-top-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(74, 144, 226, 0.6);
+        background: linear-gradient(135deg, #5A9FEF 0%, #3D6EB0 100%);
+    }
+
+    .scroll-top-btn:active {
+        transform: translateY(-1px);
+    }
     </style>
 </head>
 <body>
@@ -659,5 +687,33 @@
     <footer>
         <p>&copy; 2026 등산정상기행 | 한라산 상세 정보</p>
     </footer>
+    <!-- 위로 올리기 버튼 -->
+    <button id="scrollTopBtn" class="scroll-top-btn" onclick="scrollToTop()">
+        ⬆️ 위로 올리기
+    </button>
+
+    <script>
+        // 위로 올리기 버튼 표시/숨김
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('scrollTopBtn');
+            if (window.pageYOffset > 300) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        });
+
+        // 위로 올리기 함수
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+
+</body>
+</html>
+
 </body>
 </html>
