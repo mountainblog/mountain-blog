@@ -15,591 +15,718 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f5f5f5;
         }
 
+        /* 헤더 */
         header {
-            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             color: white;
-            padding: 40px 20px;
+            padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        header h1 {
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin-right: 15px;
+        }
+
+        header a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
             font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin: 10px 0;
         }
 
-        header p {
+        .subtitle {
             font-size: 1.1em;
+            margin-top: 10px;
             opacity: 0.9;
         }
 
+        /* 메인 컨텐츠 */
         .container {
             max-width: 900px;
-            margin: 30px auto;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            overflow: hidden;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
-        .mountain-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-        }
-
-        .content {
-            padding: 40px;
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        h2 {
-            color: #2E7D32;
-            font-size: 1.8em;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #4CAF50;
-        }
-
-        h3 {
-            color: #388E3C;
-            font-size: 1.3em;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        p {
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-
+        /* 기본 정보 박스 */
         .info-box {
-            background-color: #E8F5E9;
-            padding: 20px;
-            border-left: 4px solid #4CAF50;
-            margin: 20px 0;
-            border-radius: 5px;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border-left: 5px solid #4facfe;
         }
 
-        .info-box strong {
-            color: #2E7D32;
+        .info-box h2 {
+            color: #00f2fe;
+            margin-bottom: 15px;
+            font-size: 1.5em;
         }
 
-        ul, ol {
-            margin-left: 20px;
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .info-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-item strong {
+            color: #4facfe;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* 섹션 */
+        section {
+            margin-bottom: 50px;
+        }
+
+        section h2 {
+            color: #00f2fe;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #4facfe;
+            padding-bottom: 10px;
+        }
+
+        section h3 {
+            color: #4facfe;
+            font-size: 1.3em;
+            margin-top: 25px;
             margin-bottom: 15px;
         }
 
-        li {
-            margin-bottom: 10px;
+        section p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: justify;
         }
 
+        /* 코스 정보 */
         .course-card {
-            background-color: #F1F8E9;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
             padding: 20px;
-            border-left: 4px solid #FFC107;
-            margin: 15px 0;
-            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover {
+            border-color: #4facfe;
+            box-shadow: 0 4px 15px rgba(79, 172, 254, 0.2);
         }
 
         .course-card h4 {
-            color: #F57F17;
-            margin-bottom: 10px;
+            color: #4facfe;
+            font-size: 1.2em;
+            margin-bottom: 12px;
         }
 
-        table {
+        .course-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .detail-item {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.95em;
+        }
+
+        .detail-item strong {
+            color: #00f2fe;
+        }
+
+        /* 이미지 */
+        .mountain-image {
             width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
+            height: auto;
+            max-width: 600px;
+            max-height: 400px;
+            object-fit: contain;
+            margin: 0 auto;
+            display: block;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
         }
 
-        th, td {
+        /* 편의시설 리스트 */
+        .facility-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .facility-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #4facfe;
+        }
+
+        .facility-item strong {
+            color: #00f2fe;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* 주의사항 */
+        .warning {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .warning h4 {
+            color: #856404;
+            margin-bottom: 12px;
+        }
+
+        .warning ul {
+            margin-left: 20px;
+        }
+
+        .warning li {
+            margin-bottom: 8px;
+            color: #856404;
+        }
+
+        /* 게시판 */
+        .comments-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .comments-section h3 {
+            color: #00f2fe;
+            margin-bottom: 20px;
+        }
+
+        .comment-form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .comment-form textarea {
+            width: 100%;
             padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 100px;
         }
 
-        th {
-            background-color: #4CAF50;
+        .comment-form button {
+            background: #4facfe;
             color: white;
-        }
-
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-
-        .highlight {
-            background-color: #fff3cd;
-            padding: 2px 6px;
-            border-radius: 3px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
             font-weight: bold;
         }
 
-        .warning {
-            background-color: #f8d7da;
-            padding: 15px;
-            border-left: 4px solid #dc3545;
-            margin: 15px 0;
-            border-radius: 5px;
+        .comment-form button:hover {
+            background: #00f2fe;
         }
 
-        .success {
-            background-color: #d4edda;
-            padding: 15px;
-            border-left: 4px solid #28a745;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-
-        footer {
-            background-color: #333;
+        /* 위로 올리기 버튼 */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 12px rgba(79, 172, 254, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
         }
 
-        .comment-section {
-            margin-top: 40px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 5px;
+        .scroll-top-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.6);
+            background: linear-gradient(135deg, #5fb5fe 0%, #1bfbff 100%);
         }
 
+        .scroll-top-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* 반응형 */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8em;
-            }
-            
-            .content {
-                padding: 20px;
+            h1 {
+                font-size: 2em;
             }
 
-            table {
-                font-size: 0.9em;
+            section h2 {
+                font-size: 1.5em;
             }
 
-            th, td {
-                padding: 8px;
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .facility-list {
+                grid-template-columns: 1fr;
+            }
+
+            .course-details {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <!-- 헤더 -->
     <header>
+        <a href="blog.html">← 블로그로 돌아가기</a>
         <h1>⛰️ 오대산</h1>
-        <p>문수보살의 성산, 천년숲길을 걷다 - 등산정상기행</p>
+        <p class="subtitle">문수보살의 성산, 천년 숲길의 명산 | 1,563m</p>
     </header>
 
+    <!-- 메인 컨텐츠 -->
     <div class="container">
+        <!-- 산 이미지 -->
         <img src="odae.jpg" alt="오대산" class="mountain-image">
 
-        <div class="content">
-            <!-- 기본 정보 -->
-            <section id="basic-info">
-                <h2>🗻 기본 정보</h2>
-                <table>
-                    <tr>
-                        <th>항목</th>
-                        <th>정보</th>
-                    </tr>
-                    <tr>
-                        <td>높이</td>
-                        <td><span class="highlight">1,563 ~ 1,565m</span> (남한 8번째)</td>
-                    </tr>
-                    <tr>
-                        <td>위치</td>
-                        <td>강원도 강릉시, 평창군, 홍천군 경계</td>
-                    </tr>
-                    <tr>
-                        <td>난이도</td>
-                        <td>하 ~ 중</td>
-                    </tr>
-                    <tr>
-                        <td>등반시간</td>
-                        <td>2시간 ~ 5시간 (코스별 상이)</td>
-                    </tr>
-                    <tr>
-                        <td>특징</td>
-                        <td>천년숲길, 문수보살의 성산, 아름다운 계곡</td>
-                    </tr>
-                    <tr>
-                        <td>국립공원 지정</td>
-                        <td>1975년</td>
-                    </tr>
-                </table>
-
-                <div class="info-box">
-                    <strong>💡 오대산의 특징:</strong><br>
-                    오대산은 태백산맥의 중간에 위치한 산으로, 기암들의 모습이 금강산을 보는 듯하다고 해서 '소금강'이라고도 불립니다. 또한 학의 날개를 펴는 형상을 했다고 하여 '청학산'이라고도 불려왔습니다. 무엇보다 <span class="highlight">문수보살의 성산</span>으로 불리며, 산 전체가 불교성지입니다.
+        <!-- 기본 정보 -->
+        <section class="info-box">
+            <h2>⛰️ 오대산 기본 정보</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>높이</strong>
+                    1,563 ~ 1,565m (남한 8번째)
                 </div>
-            </section>
-
-            <!-- 역사/특징 -->
-            <section id="history">
-                <h2>📜 역사 & 특징</h2>
-
-                <h3>🏔️ 문수보살의 성산</h3>
-                <p>오대산은 불교계에서 매우 중요한 산입니다. <span class="highlight">1만 문수보살이 상주하며 부처의 정골 사리를 모신 곳</span>이라고 여겨집니다. 이로 인해 산 전체가 불교성지이며, 남한에서 산 전체가 불교성지가 되는 곳은 오대산이 유일합니다.</p>
-
-                <h3>🏛️ 월정사와 상원사</h3>
-                <p>오대산에는 <span class="highlight">월정사(月精寺)</span>와 <span class="highlight">상원사(上遠寺)</span>라는 천년 고찰이 있습니다. 특히 상원사의 범종(동종)은 높이 167cm, 지름 91cm로 경주 성덕대왕신종보다 46년이나 앞서 만들어진 한국 최고의 범종입니다. 예종 1년(1469)에 원래 안동도호부에 있던 것을 상원사로 옮겨 달았습니다.</p>
-
-                <h3>🌲 천년숲길, 선재길</h3>
-                <p>오대산의 가장 유명한 특징은 <span class="highlight">월정사에서 상원사까지 이어진 천년숲길 '선재길'</span>입니다. 약 9~10km에 달하는 이 길은 아름드리 전나무, 자작나무, 신갈나무 등 울창한 숲 속에서 오대천 계곡을 따라 걷는 코스입니다. '선재'라는 이름은 문수보살의 깨달음을 좇아 구도자의 길을 간 선재동자에서 유래했습니다.</p>
-
-                <h3>🌊 오대천 계곡</h3>
-                <p>오대산은 동쪽으로 한강(오대천)을 끼고 있어 전망이 뛰어납니다. 맑고 시원한 오대천 계곡은 여름 피서지로도 인기가 높습니다.</p>
-
-                <h3>📍 오대산의 5개 봉우리</h3>
-                <p>오대산이라는 이름은 다섯 개의 평평한 봉우리(오대)에서 유래했습니다:</p>
-                <ul>
-                    <li><strong>비로봉(北로峰, 1,563m):</strong> 최고봉, 적멸보궁 위치</li>
-                    <li><strong>호령봉(1,566m):</strong> 두 번째로 높은 봉우리</li>
-                    <li><strong>상왕봉(1,493m):</strong> 세 번째 봉우리</li>
-                    <li><strong>노인봉(1,338m):</strong> 초보자 코스의 시작점</li>
-                    <li><strong>두로봉(1,422m):</strong> 험한 코스의 목표봉</li>
-                </ul>
-            </section>
-
-            <!-- 등산 코스 -->
-            <section id="courses">
-                <h2>🚶 등산 코스</h2>
-
-                <div class="course-card">
-                    <h4>코스 1️⃣: 선재길 (천년숲길)</h4>
-                    <p><strong>거리:</strong> 약 9 ~ 10km | <strong>소요시간:</strong> 3시간 ~ 3시간 30분 | <strong>난이도:</strong> ⭐⭐ (쉬움)</p>
-                    <p><strong>시작점:</strong> 월정사 또는 상원사</p>
-                    <p><strong>특징:</strong> <span class="highlight">오대산의 가장 유명한 코스</span>로, 월정사 일주문에서 시작하여 상원사까지 이어집니다. 전나무 숲길, 오대천 계곡을 따라 걷는 천년숲길입니다. 경사가 완만하고 자연 경관이 뛰어나 초보자도 쉽게 즐길 수 있습니다.</p>
-                    <p><strong>경로:</strong> 월정사 일주문 → 회사거리 → 섶다리 → 동피골 → 상원사</p>
-                    <p><strong>하이라이트:</strong> 전나무 숲길, 월정사 천년 전나무, 오대천 계곡</p>
+                <div class="info-item">
+                    <strong>위치</strong>
+                    강원도 강릉시, 평창군, 홍천군 경계
                 </div>
-
-                <div class="course-card">
-                    <h4>코스 2️⃣: 상원사 - 적멸보궁 - 비로봉 코스 (인기 코스)</h4>
-                    <p><strong>거리:</strong> 약 6.8km | <strong>소요시간:</strong> 3시간 10분 ~ 3시간 30분 | <strong>난이도:</strong> ⭐⭐ (중하)</p>
-                    <p><strong>시작점:</strong> 상원사 탐방지원센터</p>
-                    <p><strong>특징:</strong> <span class="highlight">오대산국립공원에서 가장 많은 탐방객이 찾는 코스</span>입니다. 상원사에서 출발하여 사자암을 거쳐 적멸보궁, 비로봉에 도달합니다.</p>
-                    <p><strong>경로:</strong> 상원사 → 사자암 → 적멸보궁 → 비로봉 (원점회귀)</p>
-                    <p><strong>📍 주요 명소:</strong> 상원사(천년 고찰), 범종, 적멸보궁(부처님 사리를 모신 곳)</p>
+                <div class="info-item">
+                    <strong>난이도</strong>
+                    하 ~ 중
                 </div>
-
-                <div class="course-card">
-                    <h4>코스 3️⃣: 노인봉 코스</h4>
-                    <p><strong>거리:</strong> 약 3 ~ 4km | <strong>소요시간:</strong> 1시간 30분 ~ 2시간 | <strong>난이도:</strong> ⭐ (매우 쉬움)</p>
-                    <p><strong>시작점:</strong> 진고개 휴게소</p>
-                    <p><strong>특징:</strong> 초보자도 쉽게 오를 수 있는 가장 짧은 코스입니다. 아름다운 숲길을 걷다 오대산의 한 봉우리에 도달할 수 있습니다.</p>
-                    <p><strong>경로:</strong> 진고개 휴게소 → 노인봉 (원점회귀)</p>
+                <div class="info-item">
+                    <strong>등반 시간</strong>
+                    1.5시간 ~ 5시간
                 </div>
+            </div>
+        </section>
 
-                <div class="course-card">
-                    <h4>코스 4️⃣: 소금강 코스</h4>
-                    <p><strong>거리:</strong> 약 14km | <strong>소요시간:</strong> 4시간 ~ 5시간 | <strong>난이도:</strong> ⭐⭐⭐ (중)</p>
-                    <p><strong>시작점:</strong> 진고개</p>
-                    <p><strong>특징:</strong> 오대산의 <span class="highlight">기암괴석 절경을 감상</span>할 수 있는 코스입니다. 무릉계(소금강)를 거쳐 험한 산행을 합니다. 길이 길고 난이도가 높지만 풍경이 뛰어납니다.</p>
+        <!-- 산의 역사와 정보 -->
+        <section>
+            <h2>🏔️ 오대산의 역사와 특징</h2>
+            
+            <h3>🧘 문수보살의 성산</h3>
+            <p>
+                오대산은 <strong>문수보살이 상주하는 신성한 산</strong>으로 알려져 있습니다. 
+                5개의 봉우리가 있어 오대산이라 불리며, 각 봉우리는 5지(다섯 가지) 지혜를 상징합니다. 
+                불교 신앙의 중심지로서 많은 신자들이 참배를 다녀갑니다.
+            </p>
+
+            <h3>🌲 천년 숲길 (선재길)</h3>
+            <p>
+                <strong>월정사에서 상원사까지 이어지는 약 9~10km의 선재길</strong>은 천년 이상의 역사를 가진 참나무 숲길입니다. 
+                "선재(善財)"는 불경에 나오는 이상적인 제자를 뜻하며, 이 길을 걷는 것이 명상과 수행의 길이라고 여겨집니다. 
+                <strong>초보자도 걸을 수 있는 명상의 길</strong>로 유명하며, 많은 사람들이 이 길에서 힐링을 경험합니다.
+            </p>
+
+            <h3>🏛️ 월정사와 상원사</h3>
+            <p>
+                <strong>월정사</strong>는 신라 시대(643년경)에 창건된 사찰로, 5층 석탑이 국보로 지정되어 있습니다. 
+                조용하고 신성한 분위기의 사찰로, 많은 참배객과 등산객이 찾습니다. 
+                <strong>상원사</strong>는 산 중턱 해발 1,460m 지점에 위치한 암자로, 적멸보궁을 모시고 있으며 
+                "용의 샘"이라 불리는 한국 최고(最高) 높이의 샘이 있습니다.
+            </p>
+
+            <h3>💧 오대천 계곡</h3>
+            <p>
+                맑은 수질을 자랑하는 <strong>오대천 계곡</strong>은 경관이 뛰어나며, 
+                여름에는 물놀이와 야영의 명소로 각광받습니다. 
+                소금강(무릉계곡)이라 불리는 기암괴석이 경관을 더욱 돋보이게 합니다.
+            </p>
+
+            <h3>🌿 자연생태</h3>
+            <p>
+                태백산맥의 중간에 위치하여 생태적 가치가 높습니다. 
+                흙산과 돌산의 특징을 모두 가지고 있으며, 다양한 고산식생이 자랍니다. 
+                계절마다 산책하기 좋은 아름다운 자연을 경험할 수 있습니다.
+            </p>
+        </section>
+
+        <!-- 등산 코스 -->
+        <section>
+            <h2>🥾 등산 코스</h2>
+            
+            <div class="course-card">
+                <h4>1️⃣ 선재길 (천년 숲길) - 강력 추천!</h4>
+                <div class="course-details">
+                    <div class="detail-item">
+                        <strong>거리:</strong> 약 9 ~ 10km
+                    </div>
+                    <div class="detail-item">
+                        <strong>소요 시간:</strong> 3시간 ~ 3시간 30분
+                    </div>
+                    <div class="detail-item">
+                        <strong>난이도:</strong> 매우 쉬움 ⭐
+                    </div>
+                    <div class="detail-item">
+                        <strong>시작점:</strong> 월정사 또는 상원사
+                    </div>
                 </div>
+                <p style="margin-top: 12px;">
+                    천년 된 숲길을 따라 걷는 명상의 길입니다. 정상까지 가지 않고 숲길만 거닐 수 있으며, 
+                    초보자도 쉽게 즐길 수 있습니다. <strong>힐링과 치유를 원하는 사람들에게 최고의 선택</strong>입니다.
+                </p>
+            </div>
 
-                <h3>🌟 추천 코스</h3>
-                <p><strong>초보자:</strong> <span class="highlight">노인봉 코스</span> 또는 <span class="highlight">선재길(천년숲길)</span> 추천</p>
-                <p><strong>경험자:</strong> <span class="highlight">상원사 - 비로봉 코스</span> 또는 <span class="highlight">소금강 코스</span> 추천</p>
-                <p><strong>산책 겸 등산:</strong> <span class="highlight">선재길(천년숲길)</span> 강력 추천!</p>
-            </section>
-
-            <!-- 계절별 산행 -->
-            <section id="seasons">
-                <h2>🌍 계절별 산행 가이드</h2>
-
-                <h3>🌸 봄 (4월 ~ 5월)</h3>
-                <p>신록의 계절로, 울창한 전나무 숲이 연두색으로 물들고 야생화가 피기 시작합니다. 선재길을 걷기에 최적의 시즌입니다.</p>
-
-                <h3>☀️ 여름 (6월 ~ 8월)</h3>
-                <p>산 위의 기온이 낮아 피서를 겸한 산행에 좋습니다. 오대천 계곡도 시원하고 울창한 숲이 강한 햇빛을 차단해줍니다. <span class="highlight">여름 산행의 최고 명소</span>입니다.</p>
-
-                <h3>🍂 가을 (9월 ~ 10월)</h3>
-                <p><span class="highlight">단풍이 아름다운 계절</span>로, 산행하기 최고의 시기입니다. 선재길의 단풍은 특히 유명합니다.</p>
-
-                <h3>❄️ 겨울 (11월 ~ 2월)</h3>
-                <p>눈이 소복이 내려 설경이 아름답습니다. 다만 험한 코스는 피하고 선재길 같은 완만한 코스를 추천합니다.</p>
-
-                <div class="success">
-                    <strong>💡 최고의 시즌:</strong> 가을(단풍) 및 여름(피서지)</p>
+            <div class="course-card">
+                <h4>2️⃣ 상원사-적멸보궁-비로봉 코스</h4>
+                <div class="course-details">
+                    <div class="detail-item">
+                        <strong>거리:</strong> 약 6.8km
+                    </div>
+                    <div class="detail-item">
+                        <strong>소요 시간:</strong> 3시간 ~ 3시간 30분
+                    </div>
+                    <div class="detail-item">
+                        <strong>난이도:</strong> 중 ⭐⭐
+                    </div>
+                    <div class="detail-item">
+                        <strong>시작점:</strong> 상원사 탐방지원센터
+                    </div>
                 </div>
-            </section>
+                <p style="margin-top: 12px;">
+                    가장 인기 있는 등산 코스로, 상원사에서 출발하여 적멸보궁을 거쳐 정상에 오르는 경로입니다. 
+                    문화유산과 자연을 함께 감상할 수 있습니다.
+                </p>
+            </div>
 
-            <!-- 대중교통 -->
-            <section id="transport">
-                <h2>🚌 대중교통 & 주차</h2>
-
-                <h3>🚂 기차 이용</h3>
-                <p><strong>경로:</strong> 서울역 → 진부(오대산)역 (KTX 약 1시간 50분)</p>
-                <p><strong>운행:</strong> 하루 여러 편 운행</p>
-                <p><strong>팁:</strong> KTX로 빠르게 이동할 수 있어 당일 산행에 최적입니다.</p>
-
-                <h3>🚌 버스 이용</h3>
-                <p><strong>경로 1 (상원사 코스):</strong> 진부역/진부터미널 → 상원사행 버스 (약 20분 소요)</p>
-                <p><strong>버스 운행:</strong> 하루 10회 (07:50, 09:05, 10:00, 11:00, 12:00, 13:10, 14:50, 15:40, 17:00, 17:30)</p>
-                <p><strong>경로 2 (월정사 코스):</strong> 진부역/진부터미널 → 월정사행 버스</p>
-                <p><strong>팁:</strong> 버스 시간표에 맞춰 산행 계획을 세우는 것이 중요합니다.</p>
-
-                <h3>🚖 택시 이용</h3>
-                <p><strong>경로:</strong> 진부역/진부터미널 → 택시로 상원사 또는 월정사 (약 15분 ~ 20분)</p>
-                <p><strong>팁:</strong> 새벽 산행을 원할 때는 택시 이용이 편리합니다.</p>
-
-                <div class="info-box">
-                    <strong>📍 주차 정보:</strong><br>
-                    • <span class="highlight">월정사 주차장</span>: 대중 이용 가능, 넓은 주차 공간<br>
-                    • <span class="highlight">상원사 주차장</span>: 대중 이용 가능<br>
-                    • <span class="highlight">진고개 휴게소 주차장</span>: 무료 주차 가능<br>
-                    • <span class="highlight">성수기 주의:</span> 가을 단풍 시즌에는 주차가 어려우므로 아침 일찍 도착 또는 대중교통 이용 권장
+            <div class="course-card">
+                <h4>3️⃣ 노인봉 코스 (초보자 최적)</h4>
+                <div class="course-details">
+                    <div class="detail-item">
+                        <strong>거리:</strong> 약 3 ~ 4km
+                    </div>
+                    <div class="detail-item">
+                        <strong>소요 시간:</strong> 1시간 30분 ~ 2시간
+                    </div>
+                    <div class="detail-item">
+                        <strong>난이도:</strong> 매우 쉬움 ⭐
+                    </div>
+                    <div class="detail-item">
+                        <strong>시작점:</strong> 진고개 휴게소
+                    </div>
                 </div>
-            </section>
+                <p style="margin-top: 12px;">
+                    가장 짧고 쉬운 코스로, 초보자나 어린이도 오를 수 있습니다. 
+                    시간이 부족하거나 가벼운 산행을 원할 때 추천합니다.
+                </p>
+            </div>
 
-            <!-- 숙박 -->
-            <section id="accommodation">
-                <h2>🏠 숙박 정보</h2>
-
-                <h3>🏡 삼봉자연휴양림</h3>
-                <p><strong>위치:</strong> 강원도 홍천군 내면 삼봉휴양길 276</p>
-                <p><strong>연락처:</strong> 033-435-8536</p>
-                <p><strong>홈페이지:</strong> https://www.foresttrip.go.kr/0107/</p>
-                <p><strong>입실 시간:</strong> 오후 3시 | <strong>퇴실 시간:</strong> 오전 11시</p>
-                <p><strong>운영:</strong> 1992년 개장, 국립자연휴양림</p>
-
-                <h4>📋 객실 타입 및 가격</h4>
-                <table>
-                    <tr>
-                        <th>객실 타입</th>
-                        <th>수용인원</th>
-                        <th>비수기</th>
-                        <th>성수기</th>
-                        <th>비고</th>
-                    </tr>
-                    <tr>
-                        <td>숲속의 집</td>
-                        <td>4 ~ 10명</td>
-                        <td>40,000 ~ 120,000원</td>
-                        <td>70,000 ~ 214,000원</td>
-                        <td>가족용, 취사 가능</td>
-                    </tr>
-                    <tr>
-                        <td>연립동</td>
-                        <td>4명</td>
-                        <td>40,000원</td>
-                        <td>73,000원</td>
-                        <td>공용시설</td>
-                    </tr>
-                    <tr>
-                        <td>야영 데크</td>
-                        <td>4 ~ 6명</td>
-                        <td>15,000 ~ 16,500원</td>
-                        <td>가변</td>
-                        <td>야외 캠핑</td>
-                    </tr>
-                </table>
-
-                <h4>✨ 시설 및 특징</h4>
-                <ul>
-                    <li><strong>총 객실:</strong> 25개 숙박시설</li>
-                    <li><strong>위치:</strong> 오대산국립공원 인근, 홍천군 내면</li>
-                    <li><strong>편의시설:</strong> 취사장, 음수대, 야영장, 오토캠핑장</li>
-                    <li><strong>특징:</strong> 아름드리 전나무, 분비나무, 주목 등 침엽수와 활엽수의 조화</li>
-                    <li><strong>체험프로그램:</strong> 숲속체험교실, 목재 관련 체험 가능</li>
-                    <li><strong>가성비:</strong> 국립공원 직영으로 저렴한 가격</li>
-                </ul>
-
-                <h4>📌 예약 정보</h4>
-                <ul>
-                    <li><strong>예약처:</strong> 숲나들e 통합예약시스템 (https://www.foresttrip.go.kr)</li>
-                    <li><strong>고객센터:</strong> 1588-3250 (숲나들e 통합고객센터)</li>
-                    <li><strong>예약방식:</strong> 인터넷 선착순 예약</li>
-                    <li><strong>예약 방법:</strong> 웹 회원가입(무료) 후 예약 신청</li>
-                    <li><strong>최대 예약 기간:</strong> 3박 4일 이내</li>
-                    <li><strong>입장료:</strong> 별도 (기본 입장료 포함)</li>
-                </ul>
-
-                <div class="success">
-                    <strong>💡 삼봉자연휴양림의 장점:</strong><br>
-                    • 국립공원 직영으로 저렴한 가격<br>
-                    • 오대산 정상까지 가장 가까운 위치<br>
-                    • 가족 단위 산행에 최적의 베이스캠프<br>
-                    • 울창한 자연림과 맑은 공기<br>
-                    • 야영장부터 가족실까지 다양한 숙박옵션<br>
-                    • 숲속 체험프로그램 가능
+            <div class="course-card">
+                <h4>4️⃣ 소금강 코스 (기암괴석 경관)</h4>
+                <div class="course-details">
+                    <div class="detail-item">
+                        <strong>거리:</strong> 약 14km
+                    </div>
+                    <div class="detail-item">
+                        <strong>소요 시간:</strong> 4시간 ~ 5시간
+                    </div>
+                    <div class="detail-item">
+                        <strong>난이도:</strong> 중 ⭐⭐⭐
+                    </div>
+                    <div class="detail-item">
+                        <strong>시작점:</strong> 진고개
+                    </div>
                 </div>
-            </section>
+                <p style="margin-top: 12px;">
+                    무릉계곡(소금강)의 기암괴석을 감상하며 올라가는 경로입니다. 
+                    경험 있는 등산객에게 추천하는 본격적인 산행 코스입니다.
+                </p>
+            </div>
 
-            <!-- 편의시설 -->
-            <section id="facilities">
-                <h2>🏪 편의시설 & 맛집</h2>
+            <h3>💡 코스 선택 팁</h3>
+            <p>
+                <strong>• 초보자 / 힐링 원하는 분:</strong> 선재길 (천년 숲길) 또는 노인봉 코스<br>
+                <strong>• 정상 등반 원하는 분:</strong> 상원사-적멸보궁-비로봉 코스<br>
+                <strong>• 본격 산행 원하는 분:</strong> 소금강 코스<br>
+                <strong>• 시간이 부족한 분:</strong> 노인봉 코스 (1.5시간~2시간)
+            </p>
+        </section>
 
-                <h3>편의시설</h3>
-                <ul>
-                    <li><strong>편의점:</strong> CU, GS25 (평창 및 강릉 전역)</li>
-                    <li><strong>마트:</strong> 평창 대형마트, 강릉 이마트</li>
-                    <li><strong>다이소:</strong> 평창, 강릉 거점점</li>
-                    <li><strong>카페:</strong> 다양한 카페 (월정사 근처, 평창 시내)</li>
-                    <li><strong>병원:</strong> 평창군보건의료원, 강릉원주대학교병원</li>
-                </ul>
+        <!-- 계절별 산행 -->
+        <section>
+            <h2>🌍 계절별 산행 가이드</h2>
+            
+            <h3>🌸 봄 (4월 ~ 5월)</h3>
+            <p>
+                산이 깨어나는 계절로, 봄 야생화가 피기 시작합니다. 
+                신록의 아름다움을 감상할 수 있으며, 산책하기 좋은 날씨입니다.
+            </p>
 
-                <h3>추천 맛집</h3>
+            <h3>☀️ 여름 (6월 ~ 8월)</h3>
+            <p>
+                <strong>가장 인기 있는 시즌!</strong> 녹음이 짙고, 산 위의 기온이 낮아 피서를 겸한 산행에 최적입니다. 
+                오대천 계곡의 맑은 물로 물놀이도 가능하며, 여름 휴가 시간에 많은 등산객이 찾습니다.
+            </p>
 
-                <h4>1. 산채한마당</h4>
-                <p><strong>위치:</strong> 월정사 근처</p>
-                <p><strong>대표메뉴:</strong> 산채정식, 산채비빔밥</p>
-                <p><strong>특징:</strong> 20년 전통의 오대산 명물 식당, 산채의 맛</p>
-                <p><strong>평점:</strong> ⭐⭐⭐⭐☆ (4.0/5.0)</p>
+            <h3>🍂 가을 (9월 ~ 10월)</h3>
+            <p>
+                <strong>최고 추천 시즌!</strong> 쾌청한 날씨와 함께 단풍이 아름답습니다. 
+                산행하기 가장 좋은 기후로, 경험 많은 등산객들이 이때를 가장 선호합니다.
+            </p>
 
-                <h4>2. 오대산농원식당</h4>
-                <p><strong>위치:</strong> 평창군</p>
-                <p><strong>대표메뉴:</strong> 산채정식, 산채비빔밥</p>
-                <p><strong>특징:</strong> 20년 전통의 산채 음식 전문점</p>
+            <h3>❄️ 겨울 (11월 ~ 3월)</h3>
+            <p>
+                적설량이 적어 겨울 산행으로 적합합니다. 
+                고대로운 겨울 산의 정취를 느낄 수 있으며, 맑은 날씨에는 멀리까지 볼 수 있습니다.
+            </p>
+        </section>
 
-                <h4>3. 와우대관령한우</h4>
-                <p><strong>위치:</strong> 진부점</p>
-                <p><strong>대표메뉴:</strong> 한우, 한우불고기</p>
-                <p><strong>특징:</strong> 산행 후 든든한 한우 요리</p>
-                <p><strong>평점:</strong> ⭐⭐⭐⭐⭐ (4.7/5.0)</p>
+        <!-- 대중교통 -->
+        <section>
+            <h2>🚌 대중교통 정보</h2>
+            
+            <h3>🚂 기차 이용</h3>
+            <p>
+                <strong>경로:</strong> 서울역 → 진부역 (KTX 약 1시간 50분)<br>
+                <strong>운행:</strong> 하루 여러 편 운행<br>
+                <strong>팁:</strong> KTX로 빠르게 이동 가능하여 대중교통으로 가장 추천하는 방법입니다.
+            </p>
 
-                <h4>4. 유명식당</h4>
-                <p><strong>위치:</strong> 평창군</p>
-                <p><strong>대표메뉴:</strong> 산채, 시골 음식</p>
-                <p><strong>특징:</strong> 현지인 맛집</p>
-                <p><strong>평점:</strong> ⭐⭐⭐⭐⭐ (4.6/5.0)</p>
+            <h3>🚌 버스 이용</h3>
+            <p>
+                <strong>경로 1 (상원사 코스):</strong> 진부역/진부터미널 → 상원사행 버스 (약 20분)<br>
+                <strong>경로 2 (월정사 코스):</strong> 진부터미널 → 월정사행 버스 (약 20분)<br>
+                <strong>버스 운행:</strong> 하루 10회 이상 운행 (07:50, 09:05, 10:00, 11:00, 12:00, 13:10, 14:50, 15:40, 17:00, 17:30)<br>
+                <strong>팁:</strong> 산행 후 버스 시간을 미리 확인하고 계획하세요.
+            </p>
 
-                <h4>5. 옛날공이메밀국수</h4>
-                <p><strong>위치:</strong> 평창군</p>
-                <p><strong>대표메뉴:</strong> 메밀국수, 막국수</p>
-                <p><strong>특징:</strong> 가볍고 상큼한 산행 후 음식</p>
-            </section>
+            <h3>🚖 택시 이용</h3>
+            <p>
+                <strong>경로:</strong> 진부역/진부터미널 → 택시로 월정사/상원사 (약 15분 ~ 20분)<br>
+                <strong>팁:</strong> 초기 산행이나 시간이 부족할 때 택시 이용이 편리합니다.
+            </p>
+        </section>
 
-            <!-- 주의사항 -->
-            <section id="precautions">
-                <h2>⚠️ 주의사항</h2>
+        <!-- 주차장 -->
+        <section>
+            <h2>🅿️ 주차 정보</h2>
+            
+            <div class="facility-item">
+                <strong>월정사 주차장</strong>
+                <p style="margin-top: 8px; font-size: 0.95em;">
+                    주차 공간: 넓은 편 | 선재길 시작점 | 무료
+                </p>
+            </div>
 
-                <h3>날씨 및 안전</h3>
-                <ul>
-                    <li><strong>날씨 변화:</strong> 산 위의 날씨는 빠르게 변하므로 항상 날씨 예보 확인 필수</li>
-                    <li><strong>선재길의 특징:</strong> 10km의 긴 거리이므로 기초 체력이 필요합니다</li>
-                    <li><strong>계곡 주의:</strong> 여름 우기에는 계곡의 수위가 상승할 수 있으니 주의</li>
-                    <li><strong>햇빛 주의:</strong> 여름 산행 시 자외선 차단제 필수</li>
-                </ul>
+            <div class="facility-item">
+                <strong>상원사 탐방지원센터 주차장</strong>
+                <p style="margin-top: 8px; font-size: 0.95em;">
+                    주차 공간: 충분함 | 가장 인기 있는 코스 출발점 | 무료
+                </p>
+            </div>
 
-                <h3>필수 준비물</h3>
-                <ul>
-                    <li>등산화 (필수)</li>
-                    <li>방수 우의</li>
-                    <li>모자</li>
-                    <li>물과 고열량 간식 (선재길은 긴 거리이므로 최소 1.5L 이상)</li>
-                    <li>휴대폰과 배터리팩</li>
-                    <li>지도 또는 GPS</li>
-                    <li>자외선 차단제</li>
-                </ul>
+            <div class="facility-item">
+                <strong>진고개 휴게소 주차장</strong>
+                <p style="margin-top: 8px; font-size: 0.95em;">
+                    주차 공간: 충분함 | 노인봉/소금강 코스 출발점 | 무료
+                </p>
+            </div>
 
-                <h3>겨울 산행 준비물</h3>
-                <ul>
-                    <li><strong>아이젠:</strong> 험한 코스 시 필요</li>
-                    <li><strong>방한용품:</strong> 모자, 장갑, 목도리</li>
-                    <li><strong>보온 부츠:</strong> 겨울 산행 시</li>
-                </ul>
+            <p style="margin-top: 20px;">
+                <strong>주차 팁:</strong> 여름 휴가철과 가을 단풍 시즌에는 주차가 어려우므로 아침 일찍 도착을 강력 권장합니다.
+            </p>
+        </section>
 
-                <h3>기타 주의사항</h3>
-                <ul>
-                    <li><strong>체력 관리:</strong> 선재길은 길이가 길어 기초 체력이 필요합니다</li>
-                    <li><strong>시간 관리:</strong> 특히 겨울은 일몰이 빨르므로 시간 관리 필수</li>
-                    <li><strong>혼자 산행 피하기:</strong> 가능하면 동반자와 함께</li>
-                    <li><strong>등산로 벗어나지 않기:</strong> 지정된 등산로만 이용</li>
-                    <li><strong>불조심:</strong> 건조한 계절에는 각별히 주의</li>
-                </ul>
-            </section>
+        <!-- 숙박시설 -->
+        <section>
+            <h2>🏨 숙박시설</h2>
+            
+            <div class="facility-item">
+                <strong>삼봉자연휴양림 (추천!)</strong>
+                <p style="margin-top: 8px; font-size: 0.95em;">
+                    <strong>위치:</strong> 강원도 홍천군 내면 삼봉휴양길 276<br>
+                    <strong>연락처:</strong> 033-435-8536<br>
+                    <strong>홈페이지:</strong> https://www.foresttrip.go.kr/0107/<br>
+                    <strong>입실:</strong> 오후 3시 / 퇴실: 오전 11시<br>
+                    <strong>객실 타입:</strong> 숲속의 집, 연립동, 야영 데크<br>
+                    <strong>가격:</strong><br>
+                    • 숲속의 집 (4~10명): 40,000원 ~ 120,000원 / 70,000원 ~ 214,000원<br>
+                    • 연립동 (4명): 40,000원 / 73,000원<br>
+                    • 야영 데크 (4~6명): 15,000원 ~ 16,500원 / 가변<br>
+                    <strong>특징:</strong> 국립자연휴양림, 저렴한 가격, 오대산 최적 베이스캠프<br>
+                    <strong>예약:</strong> 숲나들e (https://www.foresttrip.go.kr) | 1588-3250
+                </p>
+            </div>
 
-            <!-- 한눈에 보기 -->
-            <section id="quick-info">
-                <h2>📋 오대산 한눈에 보기</h2>
-                <table>
-                    <tr>
-                        <th>항목</th>
-                        <th>정보</th>
-                    </tr>
-                    <tr>
-                        <td>높이</td>
-                        <td>1,563 ~ 1,565m (남한 8번째)</td>
-                    </tr>
-                    <tr>
-                        <td>위치</td>
-                        <td>강원도 강릉시, 평창군, 홍천군 경계</td>
-                    </tr>
-                    <tr>
-                        <td>최단 등반 시간</td>
-                        <td>1시간 30분 (노인봉 코스)</td>
-                    </tr>
-                    <tr>
-                        <td>최고 등반 시간</td>
-                        <td>5시간 (소금강 코스)</td>
-                    </tr>
-                    <tr>
-                        <td>난이도</td>
-                        <td>하 ~ 중</td>
-                    </tr>
-                    <tr>
-                        <td>최고 시즌</td>
-                        <td>가을(단풍), 여름(피서지)</td>
-                    </tr>
-                    <tr>
-                        <td>주요 명소</td>
-                        <td>월정사, 상원사, 천년숲길(선재길)</td>
-                    </tr>
-                    <tr>
-                        <td>대중교통</td>
-                        <td>KTX + 버스로 쉽게 접근 가능</td>
-                    </tr>
-                    <tr>
-                        <td>추천 숙박</td>
-                        <td>삼봉자연휴양림 (가성비 최고)</td>
-                    </tr>
-                </table>
-            </section>
+            <div class="facility-item">
+                <strong>강릉·평창 지역 숙박</strong>
+                <p style="margin-top: 8px; font-size: 0.95em;">
+                    호텔, 콘도, 펜션 등 다양한 숙박 옵션 가용 | 평일 8만원대 ~ 주말 15만원대
+                </p>
+            </div>
+        </section>
 
-            <!-- 후기 게시판 -->
-            <section id="reviews">
-                <h2>💬 산행 후기 및 의견</h2>
-                <p>오대산 산행을 다녀오셨나요? 아래의 댓글을 통해 소중한 경험과 팁을 공유해주세요!</p>
-                <div class="comment-section">
-                    <p>💡 <strong>댓글 작성 규칙:</strong> 욕설, 스팸, 광고는 삭제됩니다. 건설적인 의견과 경험담을 공유해주시길 바랍니다.</p>
+        <!-- 편의시설 -->
+        <section>
+            <h2>🏪 편의시설</h2>
+            
+            <div class="facility-list">
+                <div class="facility-item">
+                    <strong>🏬 편의점</strong>
+                    CU, GS25 (진부 지역 및 인근)
                 </div>
-                <!-- Disqus 댓글 시스템 추가 가능 -->
-                <div id="disqus_thread"></div>
-            </section>
-        </div>
+                <div class="facility-item">
+                    <strong>🛒 마트</strong>
+                    진부 터미널 주변 마트, 재래시장
+                </div>
+                <div class="facility-item">
+                    <strong>⛽ 주유소</strong>
+                    진부 지역 곳곳
+                </div>
+                <div class="facility-item">
+                    <strong>☕ 카페</strong>
+                    진부 중심지, 산행 후 편한 휴식처
+                </div>
+            </div>
+        </section>
+
+        <!-- 맛집 -->
+        <section>
+            <h2>🍽️ 추천 맛집</h2>
+            
+            <div class="facility-list">
+                <div class="facility-item">
+                    <strong>산채정식</strong>
+                    <p style="margin-top: 8px; font-size: 0.95em;">
+                        <strong>위치:</strong> 진부 지역<br>
+                        <strong>특징:</strong> 산에서 나는 신선한 나물<br>
+                        <strong>메뉴:</strong> 산채정식, 산채비빔밥<br>
+                        <strong>평점:</strong> ⭐⭐⭐⭐⭐ (5.0/5.0)
+                    </p>
+                </div>
+                <div class="facility-item">
+                    <strong>산채한마당</strong>
+                    <p style="margin-top: 8px; font-size: 0.95em;">
+                        <strong>위치:</strong> 평창 지역<br>
+                        <strong>특징:</strong> 지역 특색 산채 음식<br>
+                        <strong>메뉴:</strong> 산채비빔밥, 정식<br>
+                        <strong>평점:</strong> ⭐⭐⭐⭐☆ (4.7/5.0)
+                    </p>
+                </div>
+                <div class="facility-item">
+                    <strong>와우대관령한우</strong>
+                    <p style="margin-top: 8px; font-size: 0.95em;">
+                        <strong>위치:</strong> 대관령 지역<br>
+                        <strong>특징:</strong> 고품질 한우<br>
+                        <strong>메뉴:</strong> 한우 구이, 한우 전골<br>
+                        <strong>평점:</strong> ⭐⭐⭐⭐☆ (4.6/5.0)
+                    </p>
+                </div>
+                <div class="facility-item">
+                    <strong>오대산 가마솥식당</strong>
+                    <p style="margin-top: 8px; font-size: 0.95em;">
+                        <strong>위치:</strong> 진부 지역<br>
+                        <strong>특징:</strong> 가마솥에 지은 밥<br>
+                        <strong>메뉴:</strong> 가마솥밥, 가마솥 정식<br>
+                        <strong>평점:</strong> ⭐⭐⭐⭐☆ (4.4/5.0)
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 주의사항 -->
+        <section class="warning">
+            <h4>⚠️ 오대산 등산 주의사항</h4>
+            <ul>
+                <li><strong>선재길 길이:</strong> 약 9~10km로 생각보다 길므로 시간 충분히 확보 필수</li>
+                <li><strong>물 준비:</strong> 산행 시 최소 2리터 이상의 물 필요</li>
+                <li><strong>계곡 주의:</strong> 계곡 근처이므로 물 조심, 여름 물놀이 시 수심 주의</li>
+                <li><strong>날씨 변화:</strong> 산 위의 날씨는 빠르게 변하므로 방한용품 필수</li>
+                <li><strong>여름 자외선:</strong> 자외선이 강하므로 선크림, 모자, 선글라스 준비</li>
+                <li><strong>편한 신발:</strong> 장거리 산행이므로 발이 편한 등산화 필수</li>
+                <li><strong>초보자:</strong> 선재길이나 노인봉 코스 추천, 본격 산행은 경험 필수</li>
+                <li><strong>동반자 산행:</strong> 혼자보다 둘 이상 함께 산행</li>
+                <li><strong>등산로 이탈 금지:</strong> 정해진 등산로만 이용</li>
+                <li><strong>산불 주의:</strong> 건조한 계절에는 산불 주의</li>
+            </ul>
+        </section>
+
+        <!-- 게시판/댓글 -->
+        <section class="comments-section">
+            <h3>💬 등산 후기 공유</h3>
+            <p style="margin-bottom: 20px;">
+                오대산 등산을 다녀오셨나요? 당신의 경험과 팁을 공유해주세요! 
+                아래 게시판에 댓글을 남겨 다른 등산객들과 정보를 나누세요.
+            </p>
+            
+            <div class="comment-form">
+                <textarea placeholder="당신의 오대산 등산 후기를 작성해주세요. 예) 천년 숲길 산책, 월정사 방문, 추천 맛집, 계절별 경험 등..."></textarea>
+                <button onclick="alert('댓글 기능은 추후 업데이트될 예정입니다. Disqus를 통해 댓글을 남길 수 있습니다.')">댓글 작성</button>
+            </div>
+
+            <p style="font-size: 0.9em; color: #666; margin-top: 15px;">
+                💡 <strong>팁:</strong> Disqus를 통한 댓글 기능도 사용 가능합니다. 더 많은 사람들과 의견을 나누고 싶다면 댓글 섹션을 이용하세요.
+            </p>
+        </section>
     </div>
 
-    <footer>
-        <p>&copy; 2026 등산정상기행 - 오대산 가이드</p>
-        <p>산행은 안전을 최우선으로 진행하시기 바랍니다.</p>
-    </footer>
+    <!-- 위로 올리기 버튼 -->
+    <button id="scrollTopBtn" class="scroll-top-btn" onclick="scrollToTop()">⬆️ 위로 올리기</button>
 
     <script>
-        // Disqus 댓글 시스템 (선택사항)
-        var disqus_config = function() {
-            this.page.url = window.location.href;
-            this.page.identifier = 'odae-mountain';
-        };
+        // 위로 올리기 버튼 표시/숨김
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('scrollTopBtn');
+            if (window.pageYOffset > 300) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        });
 
-        // Disqus 스크립트 로드 (필요시 활성화)
-        /*
-        (function() {
-            var d = document, s = d.createElement('script');
-            s.src = 'https://your-disqus-shortname.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-        */
+        // 위로 올리기 함수
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
