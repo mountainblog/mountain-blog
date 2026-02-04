@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⛰️ 함백산 - 등산정상기행</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .mountain-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .info-box {
+            background-color: #f0f4ff;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .info-box strong {
+            color: #764ba2;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .course-card {
+            background-color: #fff9f0;
+            padding: 20px;
+            border-left: 4px solid #ff9800;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .course-card h4 {
+            color: #ff6f00;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #667eea;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .warning {
+            background-color: #f8d7da;
+            padding: 15px;
+            border-left: 4px solid #dc3545;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .success {
+            background-color: #d4edda;
+            padding: 15px;
+            border-left: 4px solid #28a745;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        .comment-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>⛰️ 함백산</h1>
+        <p>고원형 능선과 야생화의 산 - 등산정상기행</p>
+    </header>
+
+    <div class="container">
+        <img src="hambaek.jpg" alt="함백산" class="mountain-image">
+
+        <div class="content">
+            <!-- 기본 정보 -->
+            <section id="basic-info">
+                <h2>🗻 기본 정보</h2>
+                <table>
+                    <tr>
+                        <th>항목</th>
+                        <th>정보</th>
+                    </tr>
+                    <tr>
+                        <td>높이</td>
+                        <td><span class="highlight">1,573m</span> (남한 6번째)</td>
+                    </tr>
+                    <tr>
+                        <td>위치</td>
+                        <td>강원도 정선군 / 태백시</td>
+                    </tr>
+                    <tr>
+                        <td>난이도</td>
+                        <td>하 ~ 중하</td>
+                    </tr>
+                    <tr>
+                        <td>등반시간</td>
+                        <td>30분 ~ 3시간 (코스별 상이)</td>
+                    </tr>
+                    <tr>
+                        <td>특징</td>
+                        <td>고원형 능선, 야생화, 겨울 설경</td>
+                    </tr>
+                </table>
+
+                <div class="info-box">
+                    <strong>💡 함백산의 특징:</strong><br>
+                    함백산은 남한에서 6번째로 높은 산이지만, 시작점의 해발고도가 높아 초보자도 쉽게 오를 수 있습니다. 특히 차를 타고 만항재까지 올라오면 해발 1,300m 이상이고 거리도 1km 정도 밖에 안 되기 때문에 매우 접근성이 좋습니다.
+                </div>
+            </section>
+
+            <!-- 역사/특징 -->
+            <section id="history">
+                <h2>📜 역사 & 특징</h2>
+
+                <h3>🏔️ 지리적 의미</h3>
+                <p>함백산은 태백 고원의 중심에 위치한 산으로, 산을 경계로 동쪽의 물은 낙동강 수계로, 서쪽의 물은 한강 수계로 흘러듭니다. 높이보다 지리적 의미가 더 큰 산으로, <span class="highlight">두 강을 가르는 분수령의 상징</span>입니다.</p>
+
+                <h3>🌸 야생화의 산</h3>
+                <p>해발 1,500m를 넘는 고산 지대 특성상 여름에도 기온이 낮고, 아고산성 식생과 야생화 군락이 잘 발달해 있습니다. 매년 여름 한달간 함백산에서는 <span class="highlight">'야생화 축제'</span>가 열리며, '야생화와 함께 걷는 함백산 자락길'을 주제로 야생화 감상, 걷기, 음악, 체험, 힐링 프로그램이 어우러진 다채로운 행사가 구성됩니다.</p>
+
+                <h3>❄️ 겨울 설경</h3>
+                <p>겨울에는 강풍이 만드는 설화현상(눈꽃)이 일어나 <span class="highlight">강원의 대표 설산</span>으로 손꼽힙니다. 고산의 특성상 겨울 날씨가 급변하므로 주의가 필요합니다.</p>
+
+                <h3>🏛️ 역사와 문화유산</h3>
+                <p>함백산 기슭에는 5대 적멸보궁 중의 하나인 <span class="highlight">정암사</span>가 있으며, 경내에는 5대 적멸보궁이자 국보 제332호로 지정된 '정선 정암사 수마노탑'이 있습니다. 정선 정암사에서는 매해 같은 시기에 '정암사 개산문화제'가 3일 동안 열립니다.</p>
+
+                <h3>🏘️ 만항마을</h3>
+                <p>함백산 위에는 <span class="highlight">국내 최고 고도에 위치한 마을인 만항마을</span>이 있습니다. 해발고도가 1,100m로, 과거 탄광 노동자들이 정착한 고산 취락이며, 산업사와 생활사가 함께 남아 있는 독특한 공간입니다.</p>
+            </section>
+
+            <!-- 등산 코스 -->
+            <section id="courses">
+                <h2>🚶 등산 코스</h2>
+
+                <div class="course-card">
+                    <h4>코스 1️⃣: 최단 코스 (KBS 중계소 입구)</h4>
+                    <p><strong>거리:</strong> 약 1km | <strong>소요시간:</strong> 30분 ~ 1시간 | <strong>난이도:</strong> ⭐ (매우 쉬움)</p>
+                    <p><strong>시작점:</strong> KBS 중계소 입구 주차장</p>
+                    <p><strong>특징:</strong> 가장 짧고 쉬운 코스로, 초보자나 가족 단위 산행에 최적입니다. 해발고도가 이미 높아 체력 부담이 적습니다.</p>
+                    <p><strong>경로:</strong> KBS 중계소 입구 → 정상</p>
+                </div>
+
+                <div class="course-card">
+                    <h4>코스 2️⃣: 만항재 코스</h4>
+                    <p><strong>거리:</strong> 약 1.2km | <strong>소요시간:</strong> 1시간 ~ 1.5시간 | <strong>난이도:</strong> ⭐ (쉬움)</p>
+                    <p><strong>시작점:</strong> 만항재 주차장</p>
+                    <p><strong>특징:</strong> 역시 매우 접근성이 좋으며, 해발 1,300m 이상에서 출발합니다.</p>
+                    <p><strong>경로:</strong> 만항재 → 정상</p>
+                </div>
+
+                <div class="course-card">
+                    <h4>코스 3️⃣: 만항재 → 두문동재 종주 코스</h4>
+                    <p><strong>거리:</strong> 약 9.3km | <strong>소요시간:</strong> 3.5 ~ 4.5시간 | <strong>난이도:</strong> ⭐⭐ (중하)</p>
+                    <p><strong>시작점:</strong> 만항재 주차장</p>
+                    <p><strong>특징:</strong> 고원형 능선을 따라 걷는 본격적인 등산 코스입니다. 사계절 모두 좋지만, 강풍에 주의해야 합니다.</p>
+                    <p><strong>경로:</strong> 만항재 → 함백산 정상 → 두문동재</p>
+                </div>
+
+                <div class="course-card">
+                    <h4>코스 4️⃣: 정암사 코스</h4>
+                    <p><strong>거리:</strong> 약 4km | <strong>소요시간:</strong> 2시간 ~ 2.5시간 | <strong>난이도:</strong> ⭐ (쉬움)</p>
+                    <p><strong>시작점:</strong> 정암사 입구 주차장</p>
+                    <p><strong>특징:</strong> 국보 수마노탑이 있는 정암사를 거쳐 올라가는 역사와 문화를 함께 즐길 수 있는 코스입니다.</p>
+                    <p><strong>경로:</strong> 정암사 → 함백산 정상</p>
+                </div>
+
+                <h3>🌟 추천 코스</h3>
+                <p>초보자: <span class="highlight">최단 코스 (KBS 중계소 입구)</span> 또는 <span class="highlight">만항재 코스</span> 추천</p>
+                <p>경험자: <span class="highlight">만항재 → 두문동재 종주 코스</span> 또는 <span class="highlight">정암사 코스</span> 추천</p>
+            </section>
+
+            <!-- 계절별 산행 -->
+            <section id="seasons">
+                <h2>🌍 계절별 산행 가이드</h2>
+
+                <h3>🌸 봄 (4월 ~ 5월)</h3>
+                <p>야생화가 피기 시작하는 시즌입니다. 낮 기온이 올라가지만 강풍이 불 수 있으므로 방풍 점퍼를 준비하세요.</p>
+
+                <h3>🌻 여름 (6월 ~ 8월)</h3>
+                <p><span class="highlight">함백산 야생화 축제</span>가 열립니다. 고산대이므로 서울보다 10도 정도 낮으며, 다양한 야생화를 감상할 수 있습니다. 아고산성 식생이 발달해 있어 자연 학습에도 좋습니다.</p>
+
+                <h3>🍂 가을 (9월 ~ 10월)</h3>
+                <p>쾌청한 날씨가 지속되고, 정상에서 동해의 수평선을 볼 수 있습니다. 산행 적기로 붐빌 수 있으므로 아침 일찍 출발 권장합니다.</p>
+
+                <h3>❄️ 겨울 (11월 ~ 2월)</h3>
+                <p><span class="highlight">함백산 겨울 설경</span>은 강원 최고의 경험입니다. 강풍으로 인한 설화현상(눈꽃)이 일어나 환상적인 장면을 만듭니다. 단, 급변하는 날씨에 대비한 철저한 준비가 필수입니다.</p>
+
+                <div class="success">
+                    <strong>💡 최고의 시즌:</strong> 겨울(설경) 및 여름(야생화)</p>
+                </div>
+            </section>
+
+            <!-- 대중교통 -->
+            <section id="transport">
+                <h2>🚌 대중교통 & 주차</h2>
+
+                <h3>🚂 기차 이용</h3>
+                <p><strong>경로:</strong> 서울역 → 정선역 또는 고한역 (무궁화호 약 2시간 30분)</p>
+                <p><strong>운행:</strong> 하루 여러 편 운행</p>
+
+                <h3>🚌 버스 이용</h3>
+                <p><strong>경로 1:</strong> 동서울터미널 → 고한/사북 공용버스터미널 (약 2시간 30분)</p>
+                <p><strong>경로 2:</strong> 고한/사북 공용버스터미널 → 만항재 (시내버스, 첫차 07:20 / 막차 19:00)</p>
+                <p><strong>버스 운행:</strong> 하루 약 4회 운행 (시간표 확인 필수)</p>
+
+                <h3>🚖 택시 이용</h3>
+                <p><strong>경로:</strong> 고한/사북 공용버스터미널 → 만항재 (약 10,000원)</p>
+                <p><strong>팁:</strong> 새벽 시간 산행을 원한다면 택시 이용이 편합니다.</p>
+
+                <div class="info-box">
+                    <strong>📍 주차 정보:</strong><br>
+                    • <span class="highlight">만항재 주차장</span>: 대중 이용 가능, 넓은 주차 공간<br>
+                    • <span class="highlight">KBS 중계소 입구 주차장</span>: 소규모 주차 공간 (약 10대)<br>
+                    • <span class="highlight">정암사 입구 주차장</span>: 대중 이용 가능<br>
+                    • <span class="highlight">겨울 성수기</span>: 아침 일찍 도착 권장
+                </div>
+            </section>
+
+            <!-- 숙박 -->
+            <section id="accommodation">
+                <h2>🏠 숙박 정보</h2>
+
+                <h3>함백산자연휴양림</h3>
+                <p><strong>위치:</strong> 강원도 정선군 고한읍</p>
+                <p><strong>시설:</strong> 숲속의 집, 산림문화휴양관, 야영장</p>
+                <p><strong>연락처:</strong> 033-XXX-XXXX</p>
+                <p><strong>특징:</strong> 국립 자연휴양림으로 저렴한 가격에 산행 준비 가능</p>
+
+                <h3>고한 시내 숙박</h3>
+                <p><strong>위치:</strong> 정선군 고한읍 중심지</p>
+                <p><strong>종류:</strong> 펜션, 민박, 모텔, 호텔</p>
+                <p><strong>장점:</strong> 음식점, 편의점 등 편의시설 가까움</p>
+                <p><strong>가격대:</strong> 평일 3만원대 ~ 10만원대</p>
+
+                <h3>태백 시내 숙박</h3>
+                <p><strong>위치:</strong> 태백시 중심지</p>
+                <p><strong>종류:</strong> 호텔, 펜션, 모텔</p>
+                <p><strong>장점:</strong> 다양한 음식점, 쇼핑 가능</p>
+                <p><strong>가격대:</strong> 평일 4만원대 ~ 12만원대</p>
+            </section>
+
+            <!-- 편의시설 -->
+            <section id="facilities">
+                <h2>🏪 편의시설 & 맛집</h2>
+
+                <h3>편의시설</h3>
+                <ul>
+                    <li><strong>편의점:</strong> CU, GS25 (고한읍, 태백시)</li>
+                    <li><strong>마트:</strong> 고한 중앙시장, 태백 대형마트</li>
+                    <li><strong>다이소:</strong> 고한, 태백 거점점</li>
+                    <li><strong>카페:</strong> 다양한 카페 (고한읍, 태백시)</li>
+                    <li><strong>음식점:</strong> 한식당, 국수집, 막국수 등 다양</p>
+                </ul>
+
+                <h3>추천 맛집</h3>
+
+                <h4>1. 함백산돌솥밥</h4>
+                <p><strong>위치:</strong> 강원도 정선군 고한읍</p>
+                <p><strong>대표메뉴:</strong> 돌솥밥, 산채비빔밥, 약초밥</p>
+                <p><strong>특징:</strong> 산행 후 든든한 끼니를 위한 최고의 선택</p>
+
+                <h4>2. 갈래골 오리백숙</h4>
+                <p><strong>위치:</strong> 태백시 근처</p>
+                <p><strong>대표메뉴:</strong> 오리백숙, 오리불고기</p>
+                <p><strong>특징:</strong> 신선한 오리 요리로 산행 피로 회복</p>
+
+                <h4>3. 촌두부 식당 (맷돌)</h4>
+                <p><strong>위치:</strong> 영월군 근처</p>
+                <p><strong>대표메뉴:</strong> 촌두부, 된장찌개, 두부 요리</p>
+                <p><strong>특징:</strong> 현지의 건강한 음식</p>
+
+                <h4>4. 만항마을 식당</h4>
+                <p><strong>위치:</strong> 만항마을 (해발 1,100m)</p>
+                <p><strong>대표메뉴:</strong> 된장국, 밥, 산채나물</p>
+                <p><strong>특징:</strong> 산 위의 마을에서 즐기는 신선한 음식, 고산 경험</p>
+            </section>
+
+            <!-- 주의사항 -->
+            <section id="precautions">
+                <h2>⚠️ 주의사항</h2>
+
+                <div class="warning">
+                    <strong>🐍 독사 주의:</strong> 함백산은 치악산처럼 독사(살무사, 까치살무사)들이 많습니다. 풀숲을 걸을 때 주의 깊게 살피고, 물린 경우 즉시 119 신고를 하세요.
+                </div>
+
+                <h3>날씨 및 안전</h3>
+                <ul>
+                    <li><strong>강풍 대비:</strong> 고산이므로 강한 바람이 부는 경우가 많습니다. 방풍 점퍼 필수</li>
+                    <li><strong>급변하는 날씨:</strong> 산 위의 날씨는 빠르게 변하므로 항상 날씨 예보 확인</li>
+                    <li><strong>저체온증 예방:</strong> 여름에도 기온이 낮으므로 옷을 여러 겹 준비</li>
+                    <li><strong>빠른 일몰:</strong> 겨울은 일몰이 빨르므로 오후 2시 이전 산행 완료 권장</li>
+                </ul>
+
+                <h3>준비물</h3>
+                <ul>
+                    <li>등산화 (필수)</li>
+                    <li>방풍 점퍼</li>
+                    <li>방수 우의</li>
+                    <li>모자와 장갑</li>
+                    <li>물과 고열량 간식 (최소 1리터 이상)</li>
+                    <li>휴대폰과 배터리팩</li>
+                    <li>지도 또는 GPS</li>
+                    <li>화상치료제 (응급 대비)</li>
+                </ul>
+
+                <h3>겨울 산행 특별 준비물</h3>
+                <ul>
+                    <li><strong>아이젠:</strong> 필수 장비</li>
+                    <li><strong>방한용품:</strong> 발열 내복, 보온 부츠</li>
+                    <li><strong>손난로/발난로</strong></li>
+                    <li><strong>보온 물병:</strong> 따뜻한 음료</li>
+                </ul>
+
+                <h3>기타 주의사항</h3>
+                <ul>
+                    <li><strong>체력 관리:</strong> 초보자는 짧은 코스부터 시작</li>
+                    <li><strong>혼자 산행 피하기:</strong> 가능하면 동반자와 함께</li>
+                    <li><strong>산악 안전 교육:</strong> 미숙한 경우 전문 가이드 동반</li>
+                    <li><strong>불조심:</strong> 건조한 계절에는 각별히 주의</li>
+                    <li><strong>등산로 벗어나지 않기:</strong> 지정된 등산로만 이용</li>
+                </ul>
+            </section>
+
+            <!-- 한눈에 보기 -->
+            <section id="quick-info">
+                <h2>📋 함백산 한눈에 보기</h2>
+                <table>
+                    <tr>
+                        <th>항목</th>
+                        <th>정보</th>
+                    </tr>
+                    <tr>
+                        <td>높이</td>
+                        <td>1,573m (남한 6번째)</td>
+                    </tr>
+                    <tr>
+                        <td>위치</td>
+                        <td>강원도 정선군 / 태백시</td>
+                    </tr>
+                    <tr>
+                        <td>최단 등반 시간</td>
+                        <td>30분 (KBS 중계소 입구 코스)</td>
+                    </tr>
+                    <tr>
+                        <td>최고 등반 시간</td>
+                        <td>4.5시간 (만항재 → 두문동재 종주)</td>
+                    </tr>
+                    <tr>
+                        <td>난이도</td>
+                        <td>하 ~ 중하</td>
+                    </tr>
+                    <tr>
+                        <td>최고 시즌</td>
+                        <td>여름(야생화 축제), 겨울(설경)</td>
+                    </tr>
+                    <tr>
+                        <td>주차장</td>
+                        <td>만항재, KBS 중계소 입구, 정암사</td>
+                    </tr>
+                    <tr>
+                        <td>대중교통</td>
+                        <td>기차 + 버스/택시 또는 자동차</td>
+                    </tr>
+                    <tr>
+                        <td>특별 주의</td>
+                        <td>독사, 강풍, 급변하는 날씨</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- 후기 게시판 -->
+            <section id="reviews">
+                <h2>💬 산행 후기 및 의견</h2>
+                <p>함백산 산행을 다녀오셨나요? 아래의 댓글을 통해 소중한 경험과 팁을 공유해주세요!</p>
+                <div class="comment-section">
+                    <p>💡 <strong>댓글 작성 규칙:</strong> 욕설, 스팸, 광고는 삭제됩니다. 건설적인 의견과 경험담을 공유해주시길 바랍니다.</p>
+                </div>
+                <!-- Disqus 댓글 시스템 추가 가능 -->
+                <div id="disqus_thread"></div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 등산정상기행 - 함백산 가이드</p>
+        <p>산행은 안전을 최우선으로 진행하시기 바랍니다.</p>
+    </footer>
+
+    <script>
+        // Disqus 댓글 시스템 (선택사항)
+        var disqus_config = function() {
+            this.page.url = window.location.href;
+            this.page.identifier = 'hambaek-mountain';
+        };
+
+        // Disqus 스크립트 로드 (필요시 활성화)
+        /*
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://your-disqus-shortname.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        */
+    </script>
+</body>
+</html>
