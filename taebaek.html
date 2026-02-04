@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⛰️ 태백산 - 등산정상기행</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .mountain-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #ff6b6b;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #ff6b6b;
+        }
+
+        h3 {
+            color: #ee5a6f;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .info-box {
+            background-color: #ffe0e0;
+            padding: 20px;
+            border-left: 4px solid #ff6b6b;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .info-box strong {
+            color: #ee5a6f;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .course-card {
+            background-color: #fff5f5;
+            padding: 20px;
+            border-left: 4px solid #ff9800;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .course-card h4 {
+            color: #ff6f00;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #ff6b6b;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .warning {
+            background-color: #f8d7da;
+            padding: 15px;
+            border-left: 4px solid #dc3545;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .success {
+            background-color: #d4edda;
+            padding: 15px;
+            border-left: 4px solid #28a745;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        .comment-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>⛰️ 태백산</h1>
+        <p>일출의 명소, 천제단이 있는 신성한 산 - 등산정상기행</p>
+    </header>
+
+    <div class="container">
+        <img src="taebaek.jpg" alt="태백산" class="mountain-image">
+
+        <div class="content">
+            <!-- 기본 정보 -->
+            <section id="basic-info">
+                <h2>🗻 기본 정보</h2>
+                <table>
+                    <tr>
+                        <th>항목</th>
+                        <th>정보</th>
+                    </tr>
+                    <tr>
+                        <td>높이</td>
+                        <td><span class="highlight">1,566.7m</span> (남한 7번째)</td>
+                    </tr>
+                    <tr>
+                        <td>위치</td>
+                        <td>강원도 태백시, 정선군 / 경북 봉화군</td>
+                    </tr>
+                    <tr>
+                        <td>난이도</td>
+                        <td>중 ~ 중상</td>
+                    </tr>
+                    <tr>
+                        <td>등반시간</td>
+                        <td>3 ~ 5시간 (코스별 상이)</td>
+                    </tr>
+                    <tr>
+                        <td>특징</td>
+                        <td>일출의 명소, 천제단, 대중교통 접근성 우수</td>
+                    </tr>
+                </table>
+
+                <div class="info-box">
+                    <strong>💡 태백산의 특징:</strong><br>
+                    태백산은 태백산맥의 종주이자 모산(母山)으로, 민족의 영산으로 여겨져 왔습니다. 높이는 남한 7번째이지만, 접근성이 좋고 대중교통으로도 쉽게 갈 수 있는 산입니다. 특히 <span class="highlight">천제단에서 보는 일출</span>이 매우 아름답기로 유명합니다.
+                </div>
+            </section>
+
+            <!-- 역사/특징 -->
+            <section id="history">
+                <h2>📜 역사 & 특징</h2>
+
+                <h3>🏔️ 민족의 영산, 태백산</h3>
+                <p>태백산은 단군신화에 등장하는 산으로, 우리 민족의 역사에 가장 처음 등장한 지명입니다. 단군 시대부터 신라, 고려, 조선을 거쳐 일제강점기까지 천제를 지낸 의식이 전해져 왔으며, 현대에도 <span class="highlight">개천절(10월 3일)에 천제 행사</span>가 개최됩니다.</p>
+
+                <h3>☀️ 일출의 명소</h3>
+                <p>태백산 정상에서 보는 일출은 정동진보다 해발고도가 높아 더 빨리 볼 수 있습니다. 매년 새해 첫날에 수천 명의 등산객이 모여 해돋이를 맞이하는 한국의 대표 일출 명소입니다. 맑은 날씨에는 동쪽으로 동해의 수평선까지 볼 수 있습니다.</p>
+
+                <h3>⛪ 천제단(天祭壇)</h3>
+                <p>태백산 장군봉(영봉)에는 <span class="highlight">천제단</span>이 있습니다. 편마암으로 축조된 이 제단은 높이 2m, 둘레 20m의 석단으로, 1991년 국가민속문화유산으로 지정되었습니다. 상·중·하단 3기의 자연석 제단이 있으며, 여기서 하늘에 제사를 지내는 천제 의식이 이어져 오고 있습니다.</p>
+
+                <h3>🏛️ 유일사와 태백사</h3>
+                <p>산 중턱 해발 1,460m 지점에는 <span class="highlight">유일사</span>라는 절이 있습니다. 절 입구의 "용의 샘"이라 불리는 샘은 한국에서 가장 높은 곳에 있는 샘으로 알려져 있습니다. 또한 태백사도 위치하고 있어, 산행 중 문화유산을 함께 체험할 수 있습니다.</p>
+
+                <h3>❄️ 겨울 설경과 눈꽃</h3>
+                <p>태백산은 겨울 설경으로도 유명합니다. 강풍으로 인한 설화현상(눈꽃)이 일어나 <span class="highlight">겨울의 신비로운 풍경</span>을 감상할 수 있으며, 매년 겨울 눈축제가 개최됩니다.</p>
+            </section>
+
+            <!-- 등산 코스 -->
+            <section id="courses">
+                <h2>🚶 등산 코스</h2>
+
+                <div class="course-card">
+                    <h4>코스 1️⃣: 검룡소 코스 (최단)</h4>
+                    <p><strong>거리:</strong> 약 1.5km | <strong>소요시간:</strong> 30분 ~ 1시간 | <strong>난이도:</strong> ⭐ (매우 쉬움)</p>
+                    <p><strong>시작점:</strong> 검룡소 입구</p>
+                    <p><strong>특징:</strong> 가장 짧고 쉬운 코스로, 초보자나 어린이도 오를 수 있습니다. 해발고도가 이미 높아 체력 부담이 적습니다.</p>
+                    <p><strong>경로:</strong> 검룡소 → 정상</p>
+                </div>
+
+                <div class="course-card">
+                    <h4>코스 2️⃣: 백천계곡 코스</h4>
+                    <p><strong>거리:</strong> 약 5.1km | <strong>소요시간:</strong> 2시간 ~ 2시간 30분 | <strong>난이도:</strong> ⭐⭐ (쉬움)</p>
+                    <p><strong>시작점:</strong> 백천계곡 입구</p>
+                    <p><strong>특징:</strong> 계곡을 따라 올라가는 경로로 자연의 아름다움을 즐길 수 있습니다.</p>
+                    <p><strong>경로:</strong> 백천계곡 → 정상</p>
+                </div>
+
+                <div class="course-card">
+                    <h4>코스 3️⃣: 유일사 - 천제단 - 당골광장 코스 (추천)</h4>
+                    <p><strong>거리:</strong> 약 8.4 ~ 9.7km | <strong>소요시간:</strong> 4시간 ~ 5시간 | <strong>난이도:</strong> ⭐⭐⭐ (중)</p>
+                    <p><strong>시작점:</strong> 유일사 탐방지원센터</p>
+                    <p><strong>특징:</strong> 가장 인기 있는 코스로, 유일사 → 장군봉 → 천제단 → 당골광장을 거칩니다. 원점회귀 가능하며 문화유산과 자연을 함께 감상할 수 있습니다.</p>
+                    <p><strong>경로:</strong> 유일사 → 태백사 → 장군봉(정상, 천제단) → 당골광장 → 원점회귀</p>
+                    <p><strong>📍 주요 명소:</strong> 유일사(해발 1,460m), 용의 샘, 천제단, 당골광장</p>
+                </div>
+
+                <div class="course-card">
+                    <h4>코스 4️⃣: 문수봉 코스</h4>
+                    <p><strong>거리:</strong> 약 6km | <strong>소요시간:</strong> 3시간 ~ 3시간 30분 | <strong>난이도:</strong> ⭐⭐ (중하)</p>
+                    <p><strong>시작점:</strong> 당골 입구</p>
+                    <p><strong>특징:</strong> 당골에서 출발해 문수봉을 거쳐 정상에 오르는 코스입니다.</p>
+                    <p><strong>경로:</strong> 당골 → 문수봉 → 정상</p>
+                </div>
+
+                <h3>🌟 추천 코스</h3>
+                <p><strong>초보자:</strong> <span class="highlight">검룡소 코스</span> 또는 <span class="highlight">백천계곡 코스</span> 추천</p>
+                <p><strong>경험자:</strong> <span class="highlight">유일사 - 천제단 - 당골광장 코스</span> 강력 추천 (가장 인기)</p>
+                <p><strong>일출 관광:</strong> <span class="highlight">유일사 코스</span> (새벽 출발, 정상에서 일출 감상)</p>
+            </section>
+
+            <!-- 계절별 산행 -->
+            <section id="seasons">
+                <h2>🌍 계절별 산행 가이드</h2>
+
+                <h3>🌸 봄 (4월 ~ 5월)</h3>
+                <p>봄 야생화가 피기 시작하며 날씨가 따뜻해집니다. 신록의 아름다움을 감상할 수 있는 최적의 시즌입니다.</p>
+
+                <h3>☀️ 여름 (6월 ~ 8월)</h3>
+                <p>산 위의 기온이 낮아 피서를 겸한 산행에 좋습니다. 맑은 날씨에는 동해의 수평선까지 볼 수 있습니다.</p>
+
+                <h3>🍂 가을 (9월 ~ 10월)</h3>
+                <p><span class="highlight">단풍이 아름다운 계절</span>로, 산행하기 가장 좋은 시기입니다. 맑은 날씨에 많은 등산객이 모입니다. 개천절(10월 3일)에는 천제 행사가 개최됩니다.</p>
+
+                <h3>❄️ 겨울 (11월 ~ 2월)</h3>
+                <p><span class="highlight">겨울 설경과 눈꽃</span>이 일어나 신비로운 풍경을 만듭니다. 강풍과 급변하는 날씨에 주의가 필요하며, 철저한 방한 준비가 필수입니다. 특히 <span class="highlight">새해 첫날 일출산행</span>은 가장 인기 있는 행사입니다.</p>
+
+                <div class="success">
+                    <strong>💡 최고의 시즌:</strong> 가을(단풍) 및 겨울(설경, 새해 일출)</p>
+                </div>
+            </section>
+
+            <!-- 대중교통 -->
+            <section id="transport">
+                <h2>🚌 대중교통 & 주차</h2>
+
+                <h3>🚂 기차 이용</h3>
+                <p><strong>경로:</strong> 청량리역 또는 서울역 → 태백역 (중앙선, 무궁화호 약 2시간 30분 ~ 3시간)</p>
+                <p><strong>운행:</strong> 하루 여러 편 운행</p>
+                <p><strong>팁:</strong> 새해 일출산행을 위해 새벽 기차 이용 가능</p>
+
+                <h3>🚌 버스 이용</h3>
+                <p><strong>경로 1 (유일사 코스):</strong> 태백역/태백버스터미널 → 6번 버스 → 유일사 입구 정류장 하차</p>
+                <p><strong>경로 2 (당골광장 코스):</strong> 태백버스터미널 → 33번 버스 → 소도당골/석탄박물관 하차 (약 15분 소요)</p>
+                <p><strong>버스 운행:</strong> 하루 여러 편 (7:38, 8:35, 09:05, 09:35, 10:00 등)</p>
+                <p><strong>팁:</strong> 산행 계획에 맞춰 버스 시간표 확인 필수</p>
+
+                <h3>🚖 택시 이용</h3>
+                <p><strong>경로:</strong> 태백역/태백버스터미널 → 택시로 유일사 또는 당골광장 (약 15분 ~ 20분)</p>
+                <p><strong>팁:</strong> 새벽 산행을 원할 때는 택시 이용이 편리합니다.</p>
+
+                <div class="info-box">
+                    <strong>📍 주차 정보:</strong><br>
+                    • <span class="highlight">유일사 탐방지원센터 주차장</span>: 대중 이용 가능, 넓은 주차 공간<br>
+                    • <span class="highlight">검룡소 주차장</span>: 소규모 주차 공간<br>
+                    • <span class="highlight">당골광장 주차장</span>: 대중 이용 가능<br>
+                    • <span class="highlight">백천계곡 주차장</span>: 대중 이용 가능<br>
+                    • <span class="highlight">성수기 주의:</span> 새해, 가을 단풍, 겨울 눈축제 시즌에는 주차가 어려우므로 아침 일찍 도착 권장
+                </div>
+            </section>
+
+            <!-- 숙박 -->
+            <section id="accommodation">
+                <h2>🏠 숙박 정보</h2>
+
+                <h3>🏡 태백산민박촌</h3>
+                <p><strong>위치:</strong> 강원도 태백시 소도동 천제단길 134</p>
+                <p><strong>연락처:</strong> 033-553-7440</p>
+                <p><strong>홈페이지:</strong> http://minbak.taebaek.go.kr/</p>
+                <p><strong>입실 시간:</strong> 오후 3시 (최종 입실 22:00까지)</p>
+                <p><strong>퇴실 시간:</strong> 익일 11시</p>
+
+                <h4>📋 객실 타입 및 가격</h4>
+                <table>
+                    <tr>
+                        <th>객실 타입</th>
+                        <th>정원</th>
+                        <th>비수기</th>
+                        <th>성수기</th>
+                        <th>비고</th>
+                    </tr>
+                    <tr>
+                        <td>온돌 (17실)</td>
+                        <td>2명</td>
+                        <td>30,000원</td>
+                        <td>45,000원</td>
+                        <td>9평, 전통 온돌방</td>
+                    </tr>
+                    <tr>
+                        <td>침대 (7실)</td>
+                        <td>2명</td>
+                        <td>30,000원</td>
+                        <td>45,000원</td>
+                        <td>9평, 침대식</td>
+                    </tr>
+                    <tr>
+                        <td>15평 (12실)</td>
+                        <td>4명</td>
+                        <td>55,000원</td>
+                        <td>75,000원</td>
+                        <td>가족실, 리모델링 완료</td>
+                    </tr>
+                </table>
+
+                <h4>📅 성수기 및 비수기</h4>
+                <ul>
+                    <li><strong>성수기:</strong> 1월 1일 ~ 2월 28일, 7월 1일 ~ 8월 31일</li>
+                    <li><strong>비수기:</strong> 그 외 기간</li>
+                </ul>
+
+                <h4>✨ 시설 및 특징</h4>
+                <ul>
+                    <li><strong>총 객실:</strong> 36실 (73실 운영)</li>
+                    <li><strong>위치:</strong> 태백산국립공원 입구, 태백시내에서 차로 10분</li>
+                    <li><strong>주차장:</strong> 넓은 주차 공간 (관리실 앞)</li>
+                    <li><strong>편의시설:</strong> 전자렌지, 정수기, 휴게공간(라운지)</li>
+                    <li><strong>난방:</strong> 완비, 겨울 산행에 최적</li>
+                    <li><strong>특징:</strong> 리모델링 완료, 깨끗함, 가성비 최고</li>
+                </ul>
+
+                <h4>📌 주의사항</h4>
+                <ul>
+                    <li><strong>취사 금지:</strong> 객실 내 취사시설 없음, 취사 금지</li>
+                    <li><strong>예약:</strong> 국립공원공단 예약통합시스템 (https://reservation.knps.or.kr) 이용</li>
+                    <li><strong>선착순:</strong> 예약은 해당 월 전달 초에 시작되며 인기가 많아 빨리 마감</li>
+                    <li><strong>장기 숙박:</strong> 수건 교체 필요 시 관리실에 가져가기</li>
+                </ul>
+
+                <div class="success">
+                    <strong>💡 태백산민박촌의 장점:</strong><br>
+                    • 국립공원 직영으로 저렴한 가격<br>
+                    • 태백산 정상까지 가장 가까운 위치<br>
+                    • 새해 일출산행에 최적의 베이스캠프<br>
+                    • 깨끗하고 현대적 시설(리모델링 완료)<br>
+                    • 산행 후 따뜻한 온돌방에서 휴식 가능
+                </div>
+            </section>
+
+            <!-- 편의시설 -->
+            <section id="facilities">
+                <h2>🏪 편의시설 & 맛집</h2>
+
+                <h3>편의시설</h3>
+                <ul>
+                    <li><strong>편의점:</strong> CU, GS25 (태백시 전역)</li>
+                    <li><strong>마트:</strong> 태백 대형마트, 재래시장</li>
+                    <li><strong>다이소:</strong> 태백시 거점점</li>
+                    <li><strong>카페:</strong> 다양한 카페 (태백시 중심지)</li>
+                    <li><strong>병원:</strong> 태백적십자병원, 태백의료원</li>
+                </ul>
+
+                <h3>추천 맛집</h3>
+
+                <h4>1. 태성실비식당</h4>
+                <p><strong>위치:</strong> 강원도 태백시</p>
+                <p><strong>대표메뉴:</strong> 실비집 (다양한 밑반찬이 특징)</p>
+                <p><strong>특징:</strong> 태백에서 가장 오래된 실비집 중 하나, 현지인 맛집</p>
+                <p><strong>평점:</strong> ⭐⭐⭐⭐⭐ (4.8/5.0)</p>
+
+                <h4>2. 본가태백닭갈비</h4>
+                <p><strong>위치:</strong> 강원도 태백시</p>
+                <p><strong>대표메뉴:</strong> 닭갈비, 물닭갈비</p>
+                <p><strong>특징:</strong> 태백의 대표 음식, 광부들의 고단함을 달래주던 음식</p>
+                <p><strong>평점:</strong> ⭐⭐⭐⭐☆ (4.2/5.0)</p>
+
+                <h4>3. 태백약초백숙</h4>
+                <p><strong>위치:</strong> 강원도 태백시</p>
+                <p><strong>대표메뉴:</strong> 약초백숙, 산채나물</p>
+                <p><strong>특징:</strong> 산행 후 피로 회복에 최고</p>
+                <p><strong>평점:</strong> ⭐⭐⭐⭐⭐ (5.0/5.0)</p>
+
+                <h4>4. 강산막국수</h4>
+                <p><strong>위치:</strong> 강원도 태백시</p>
+                <p><strong>대표메뉴:</strong> 막국수, 감자전</p>
+                <p><strong>특징:</strong> 가볍고 상큼한 산행 후 음식</p>
+                <p><strong>평점:</strong> ⭐⭐⭐⭐☆ (4.3/5.0)</p>
+
+                <h4>5. 철암 불로닭</h4>
+                <p><strong>위치:</strong> 태백시 철암동</p>
+                <p><strong>대표메뉴:</strong> 닭 요리, 인생 치킨</p>
+                <p><strong>특징:</strong> 현지에서 유명한 맛집</p>
+            </section>
+
+            <!-- 주의사항 -->
+            <section id="precautions">
+                <h2>⚠️ 주의사항</h2>
+
+                <div class="warning">
+                    <strong>🌬️ 강풍 주의:</strong> 정상 부근에서는 강풍이 부는 경우가 많습니다. 특히 겨울에는 바람이 매우 강하므로 넘어질 수 있으니 주의하세요.
+                </div>
+
+                <h3>날씨 및 안전</h3>
+                <ul>
+                    <li><strong>날씨 변화:</strong> 산 위의 날씨는 빠르게 변하므로 항상 날씨 예보 확인 필수</li>
+                    <li><strong>일출산행:</strong> 새해 일출이나 가을 단풍 시즌에는 새벽 출발 시 길을 잃지 않도록 조명 준비</li>
+                    <li><strong>저체온증 예방:</strong> 겨울은 산 위의 기온이 매우 낮으므로 두꺼운 방한용품 필수</li>
+                    <li><strong>빠른 일몰:</strong> 겨울은 일몰이 빨르므로 오후 2시 이전 산행 완료 권장</li>
+                    <li><strong>혼잡 시즌:</strong> 새해 첫날과 가을 단풍 시즌에는 등산로가 매우 붐빕니다</li>
+                </ul>
+
+                <h3>필수 준비물</h3>
+                <ul>
+                    <li>등산화 (필수)</li>
+                    <li>방풍 점퍼</li>
+                    <li>방수 우의</li>
+                    <li>모자와 장갑</li>
+                    <li>물과 고열량 간식 (최소 1리터 이상)</li>
+                    <li>휴대폰과 배터리팩</li>
+                    <li>지도 또는 GPS</li>
+                    <li>손전등 (새벽 산행)</li>
+                </ul>
+
+                <h3>겨울 산행 특별 준비물</h3>
+                <ul>
+                    <li><strong>아이젠:</strong> 필수 장비</li>
+                    <li><strong>방한용품:</strong> 발열 내복, 두꺼운 내복, 보온 부츠</li>
+                    <li><strong>손난로/발난로</strong></li>
+                    <li><strong>보온 물병:</strong> 따뜻한 음료</li>
+                    <li><strong>여분의 양말:</strong> 젖었을 때 교환</li>
+                </ul>
+
+                <h3>기타 주의사항</h3>
+                <ul>
+                    <li><strong>체력 관리:</strong> 초보자는 짧은 코스부터 시작</li>
+                    <li><strong>혼자 산행 피하기:</strong> 가능하면 동반자와 함께</li>
+                    <li><strong>산악 안전 교육:</strong> 미숙한 경우 전문 가이드 동반</li>
+                    <li><strong>불조심:</strong> 건조한 계절에는 각별히 주의</li>
+                    <li><strong>등산로 벗어나지 않기:</strong> 지정된 등산로만 이용</li>
+                    <li><strong>인파 주의:</strong> 성수기에는 밀리지 않도록 주의</li>
+                </ul>
+            </section>
+
+            <!-- 한눈에 보기 -->
+            <section id="quick-info">
+                <h2>📋 태백산 한눈에 보기</h2>
+                <table>
+                    <tr>
+                        <th>항목</th>
+                        <th>정보</th>
+                    </tr>
+                    <tr>
+                        <td>높이</td>
+                        <td>1,566.7m (남한 7번째)</td>
+                    </tr>
+                    <tr>
+                        <td>위치</td>
+                        <td>강원도 태백시, 정선군 / 경북 봉화군</td>
+                    </tr>
+                    <tr>
+                        <td>최단 등반 시간</td>
+                        <td>30분 (검룡소 코스)</td>
+                    </tr>
+                    <tr>
+                        <td>최고 등반 시간</td>
+                        <td>5시간 (유일사 - 당골광장 종주)</td>
+                    </tr>
+                    <tr>
+                        <td>난이도</td>
+                        <td>중 ~ 중상</td>
+                    </tr>
+                    <tr>
+                        <td>최고 시즌</td>
+                        <td>가을(단풍), 겨울(설경, 새해 일출)</td>
+                    </tr>
+                    <tr>
+                        <td>주요 명소</td>
+                        <td>천제단, 유일사, 용의 샘</td>
+                    </tr>
+                    <tr>
+                        <td>대중교통</td>
+                        <td>기차/버스로 쉽게 접근 가능</td>
+                    </tr>
+                    <tr>
+                        <td>추천 숙박</td>
+                        <td>태백산민박촌 (가성비 최고)</td>
+                    </tr>
+                    <tr>
+                        <td>특별 행사</td>
+                        <td>새해 첫날 일출산행, 개천절 천제</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- 후기 게시판 -->
+            <section id="reviews">
+                <h2>💬 산행 후기 및 의견</h2>
+                <p>태백산 산행을 다녀오셨나요? 아래의 댓글을 통해 소중한 경험과 팁을 공유해주세요!</p>
+                <div class="comment-section">
+                    <p>💡 <strong>댓글 작성 규칙:</strong> 욕설, 스팸, 광고는 삭제됩니다. 건설적인 의견과 경험담을 공유해주시길 바랍니다.</p>
+                </div>
+                <!-- Disqus 댓글 시스템 추가 가능 -->
+                <div id="disqus_thread"></div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 등산정상기행 - 태백산 가이드</p>
+        <p>산행은 안전을 최우선으로 진행하시기 바랍니다.</p>
+    </footer>
+
+    <script>
+        // Disqus 댓글 시스템 (선택사항)
+        var disqus_config = function() {
+            this.page.url = window.location.href;
+            this.page.identifier = 'taebaek-mountain';
+        };
+
+        // Disqus 스크립트 로드 (필요시 활성화)
+        /*
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://your-disqus-shortname.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        */
+    </script>
+</body>
+</html>
