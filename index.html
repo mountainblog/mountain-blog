@@ -249,6 +249,35 @@
             margin: 0;
         }
 
+        /* 위로 올리기 버튼 */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #4A90E2 0%, #2c5aa0 100%);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .scroll-top-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(74, 144, 226, 0.6);
+            background: linear-gradient(135deg, #5A9FEF 0%, #3D6EB0 100%);
+        }
+
+        .scroll-top-btn:active {
+            transform: translateY(-1px);
+        }
+
         /* 반응형 */
         @media (max-width: 768px) {
             .hero h1 {
@@ -279,7 +308,7 @@
 </head>
 <body>
     <!-- 히어로 섹션 -->
-    <section class="hero" style="background-image: url('https://raw.githubusercontent.com/mountainblog/mountain-blog/main/baekdudaegan.jpg'); background-blend-mode: overlay;">
+    <section class="hero" style="background-image: url('https://raw.githubusercontent.com/mountainblog/mountain-blog/main/deamunimagejpg'); background-blend-mode: overlay;">
         <div class="hero-content">
             <h1>⛰️ 등산정상기행</h1>
             <p>대한민국 높은 산 정상 TOP10을 오르다</p>
@@ -408,5 +437,30 @@
     <footer>
         <p>&copy; 2026 등산정상기행 | 대한민국의 아름다운 산들을 함께 오릅니다</p>
     </footer>
+
+    <!-- 위로 올리기 버튼 -->
+    <button id="scrollTopBtn" class="scroll-top-btn" onclick="scrollToTop()">
+        ⬆️ 위로 올리기
+    </button>
+
+    <script>
+        // 위로 올리기 버튼 표시/숨김
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('scrollTopBtn');
+            if (window.pageYOffset > 300) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        });
+
+        // 위로 올리기 함수
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
 </body>
 </html>
